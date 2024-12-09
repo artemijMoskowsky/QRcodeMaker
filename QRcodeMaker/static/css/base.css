@@ -1,0 +1,42 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+header{
+    border: 1px solid #D2D2D2;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-start{
+    display: flex;
+    padding: 0.9vh 0.5vw;
+    gap: 2vw;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#header-start a{
+    font-family: Ysabeau Infant;
+    font-size: calc(1vh + 1vw);
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+#header-end{
+    display: flex;
+    padding: 0.9vh 0.5vw;
+    gap: 2vw;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#header-end p{
+    color: black;
+    font-family: Ysabeau Infant;
+    font-size: calc(1vh + 1vw);
+    font-weight: bold;
+}
