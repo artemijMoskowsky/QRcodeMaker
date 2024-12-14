@@ -1,0 +1,37 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock title %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Ysabeau Infant' rel='stylesheet'>
+        {% block links %}
+        
+        {% endblock links %}
+    </head>
+    <body>
+        <header>
+            <div id="header-start">
+                <img src="{% static 'images/Logo.png' %}" alt="">
+                <a href="/">Головна</a>
+                <a href="/create_qrcode">Створити QR код</a>
+                <a href="/my_qrcodes">Мої QR коди</a>
+                <a href="/contacts">Контакти</a>
+            </div>
+            <div id="header-end">
+                <p>USER</p>
+                <img src="{% static 'images/Account.png' %}" alt="">
+            </div>
+        </header>
+        {% block content %}
+        
+        {% endblock content %}
+
+        {% block scripts %}
+        
+        {% endblock scripts %}
+    </body>
+</html>
