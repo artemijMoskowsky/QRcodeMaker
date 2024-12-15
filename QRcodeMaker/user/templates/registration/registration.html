@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Registration{% endblock  %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'registration/css/styles.css' %}">
+{% endblock  %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" class="registration-form">
+            {% csrf_token %}
+            <h1>Реєстрація</h1>
+            <label for="username">Ім'я користувача:</label>
+            <input type="text" name="username" placeholder="Введіть ім'я користувача" required>
+            <label for="email">Введіть email користувача:</label>
+            <input type="email" name="email" placeholder="Введіть email користувача" required>
+            <label for="password">Введіть пароль користувача:</label>
+            <input type="password" name="password" placeholder="Введіть пароль користувача" required>
+            <button class="registration-button">Зареєструватися</button>
+        </form>
+    </div>
+{% endblock  %}
