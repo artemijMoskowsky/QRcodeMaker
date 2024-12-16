@@ -26,10 +26,30 @@
                 <img src="{% static 'images/Account.png' %}" alt="">
             </div>
         </header>
+
         {% block content %}
         
         {% endblock content %}
 
+
+        <footer>
+            <div id="footer-placer1">
+                <img src="{% static 'images/Logo.png' %}" alt="">
+                <div id="footer-links">
+                    <h1>QRcodeMaker</h1>
+                    <a href="/create_qrcode"></a>
+                    <a href="/contacts">Контакти</a>
+                </div>
+            </div>
+            <div id="footer-placer2">
+                <h1>Як з нами зв'язатись?</h1>
+                <div id="contacts">
+                    <img src="{% static 'images/Instagram.png' %}" alt="">
+                    <img src="{% static 'images/WhatsApp.png' %}" alt="">
+                </div>
+            </div>
+            
+        </footer>
         {% block scripts %}
         
         {% endblock scripts %}
