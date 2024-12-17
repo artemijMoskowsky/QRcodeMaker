@@ -44,6 +44,7 @@ header{
     border: 1px solid #D2D2D2;
     display: flex;
     justify-content: space-between;
+    background-color: white;
 }
 
 #header-start{
