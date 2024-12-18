@@ -5,4 +5,4 @@ def render_create_qrcode(request):
     return render(request=request, template_name='create_qrcode/create_qrcode.html')
 
 def render_my_qrcodes(request):
-    return render(request=request, template_name='my_qrcode/my_qrcodes.html')
+    return render(request=request, template_name='my_qrcodes/my_qrcodes.html')
