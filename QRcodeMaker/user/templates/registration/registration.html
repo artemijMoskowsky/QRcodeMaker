@@ -9,17 +9,21 @@
 {% endblock  %}
 
 {% block content %}
-    <div class="container">
-        <form method="post" class="registration-form">
-            {% csrf_token %}
-            <h1>Реєстрація</h1>
-            <label for="username">Ім'я користувача:</label>
-            <input type="text" name="username" placeholder="Введіть ім'я користувача" required>
-            <label for="email">Введіть email користувача:</label>
-            <input type="email" name="email" placeholder="Введіть email користувача" required>
-            <label for="password">Введіть пароль користувача:</label>
-            <input type="password" name="password" placeholder="Введіть пароль користувача" required>
-            <button class="registration-button">Зареєструватися</button>
-        </form>
+    <div class="test">
+        <div class="registration-container">
+            <h2>Реєстрація</h2>
+            <form method="post" class="registration-box">
+                {% csrf_token %}
+                <p class="input_holder">Ім'я користувача:</p>
+                <input class = "reg_input" type = "text" name = "username" placeholder = "Введіть ім'я" required>
+                <p class="input_holder">Email користувача:</p>
+                <input class = "reg_input" type = "email" name = "email" placeholder = "Введіть email" required>
+                <p class="input_holder">Пароль користувача:</p>
+                <input class = "reg_input" type = "password" name = "password" placeholder = "Введіть пароль" required>
+                <p>Якщо у вас вже є аккаунт натисніть <a href="{% url 'login' %}">тут</a>.</p>
+                <button type = "submit" class = "reg_submit">Зареєструватися</button>
+            </form>
+        </div>
     </div>
-{% endblock  %}
+
+{% endblock  %}A

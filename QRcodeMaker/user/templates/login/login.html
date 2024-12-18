@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Login {% endblock %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'login/css/styles.css' %}">
+{% endblock  %}
+
+{% block content %}
+
+<div class="test">
+    <div class="login-container">
+        <form method="post" class = "login-box">
+            {% csrf_token %}
+            <p class="input_holder">Ім'я користувача:</p>
+            <input class="log_input" type="text" name="username" placeholder="Введіть ім'я">
+            <p class="input_holder">Email користувача:</p>
+            <input class="log_holder" type="email" name="email" placeholder="Введіть email">
+            <p class="input_holder">Пароль користувача:</p>
+            <input class="log_holder" type="password" name="password" placeholder="Введіть пароль">
+            <p>Якщо у вас вже є аккаунт натисніть <a href="{% url 'reg' %}">тут</a>.</p>
+            <button class="login_submit" type="submit">Увійти</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

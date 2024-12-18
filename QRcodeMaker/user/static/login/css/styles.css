@@ -9,7 +9,7 @@
 }
 
 
-.registration-container {
+.login-container {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -26,7 +26,7 @@
     text-align: left;
 }
 
-.registration-box input {
+.login-box input {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -41,22 +41,22 @@
 }
 
 
-.registration-box p {
+.login-box p {
     font-size: 14px;
     text-align: center;
 }
 
-.registration-box a {
+.login-box a {
     color: #6a0dad;
     text-decoration: none;
 }
 
-.registration-box a:hover {
+.login-box a:hover {
     text-decoration: underline;
 }
 
 
-.registration-box button {
+.login-box button {
     width: 100%;
     padding: 10px;
     background-color: #b76cff;
@@ -68,6 +68,6 @@
     margin-top: 10px;
 }
 
-.registration-box button:hover {
+.login-box button:hover {
     background-color: #a459d1;
 }
