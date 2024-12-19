@@ -1,74 +1,61 @@
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>QR Code Maker</title>
-        <link rel="stylesheet" href="styles/core.css">
-    </head>
-    <body>
-        <header class = "header">
-            <nav class = "nav-header">
-                <a href="#" class = "logo">Головна</a>
-                <a href="#">Створити QR код</a>
-                <a href="#">Мої QR коди</a>
-                <a href="#">Контакти</a>
-                <span class = "user">USER</span>
-            </nav>
-        </header>
-        <main>
-            <div class = "title">
-                <h1>Ласкаво просимо на нашому сайті <b>QR Code Maker</b></h1>
-                <p>На сайті <b>QR Code Maker</b> ви можете зробити свої власні кастомізовані QR коди. Налаштуйте його за бажанним кольром, зображенням та формою.</p>
-            </div>
-
-            <div class = "plans-cards">
-                <div class = "plan-card">
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/core.css' %}">
+{% endblock %}
+{% block content %}
+    <main>
+        <div class = "title">
+            <h1>Ласкаво просимо на нашому сайті <b>QR Code Maker</b></h1>
+            <p>На сайті <b>QR Code Maker</b> ви можете зробити свої власні кастомізовані QR коди. Налаштуйте його за бажанним кольром, зображенням та формою.</p>
+        </div>
+        <div class = "plans-cards">
+            <div class = "plan-card">
+                    <div>
                     <h2>Free підписка</h2>
+                    <h5>Економний варіант для новачка</h5>
                     <p>Free</p>
+                    <h3>За місяць</h3>
                     <button>Get started</button>
+                    <h6>Усе в Free, а також:</h6>
                     <ul>
-                        <li>1. QR код на  місяць</li>
+                        <li>1 QR код на  місяць</li>
                     </ul>
                 </div>
-
-                <div class = "plan-card">
+            </div>
+            <div class = "plan-card">
+                    <div>
                     <h2>Standart підписка</h2>
+                    <h5>Вибір звичайного користувача</h5>
                     <p>2$</p>
+                    <h3>За місяць</h3>
                     <button>Get started</button>
+                    <h6>Усе в Standart, а також:</h6>
                     <ul>
                         <li>До 10 кастомізованих QR кодів</li>
                         <li>Вигідна ціна для маленьких задач</li>
                     </ul>
                 </div>
-
-                <div class = "plan-card">
+            </div>
+            <div class = "plan-card">
+                <div>
                     <h2>Pro підписка</h2>
+                    <h5>Преміум для профі користувача</h5>
                     <p>10$</p>
+                    <h3>За місяць</h3>
                     <button>Get started</button>
+                    <h6>Усе в Pro, а також:</h6>
                     <ul>
                         <li>До 100 кастомізованих QR кодів</li>
                         <li>Вигідна ціна для виробників</li>
                     </ul>
                 </div>
-
             </div>
-            
-            <div class = "create-button">
-                <button class = "create">Створити</button>
-            </div>
-        </main>
-
-        <footer class = "footer">
-            <div class="contact">
-                <h3>QRcode maker</h3>
-                <p>Створити QR код</p>
-                <p>Про нас</p>
-            </div>
-            <div class = "socials">
-                <p>Як з нами зв'язатись?</p>
-                <a href=""><img src="instagram.png" alt="Instagram"></a>
-                <a href=""><img src="whatsapp.png" alt="WhatsApp"></a>
-            </div>
-        </footer>
-    </body>
-</html>
+        </div>
+        
+        <div class = "create-button">
+            <h1>Перейти до створення QR коду</h1>
+            <button class = "create">Створити</button>
+        </div>
+    </main>
+{% endblock %}
