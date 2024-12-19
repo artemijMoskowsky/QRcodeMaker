@@ -1,0 +1,133 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+body{
+    background: linear-gradient(to right, white, #E2C9F0);
+    font-family: 'Ysabeau Infant';
+    overflow-x: hidden;
+}
+
+.main-for-qrcodes{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    
+}
+
+.div-qrcodes{
+    width: 68vw;
+    height: 91vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 3vw;
+    flex-wrap: wrap;
+    margin-top: 10vh;
+}
+
+.card{
+    width: 18vw;
+    height: 54vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #EBDBF0;
+    border-radius: 0.8vw;
+    box-shadow: 0px 0px 0.2vw 0.3vw #d8d8d8;
+    margin-top: 5vh;
+}
+
+.my-qrcode{
+    width: 12vw;
+    height: 26vh;
+    margin-top: 4vh;
+}
+
+.p-text{
+    width: 14vw;
+    height: 10vh;
+    margin-top: 3vh;
+}
+
+p.my-text.second{
+    margin-top: 2.5vh;
+}
+
+.my-text{
+    font-size: calc(0.7vw + 0.7vh);
+    color: #606060;
+}
+
+
+.button-png{
+    width: 13vw;
+    height: 5vh;
+    text-align: center;
+    font-size: calc(0.7vw + 0.7vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #D9C4FF;
+    border-style: none;
+    margin-top: 1.5vh;
+}
+
+.icon-download{
+    margin-left: 0.5vw;
+    width: 1.7vw;
+    height: 3.5vh;
+}
+
+
+
+
+.main-filter-div{
+    width: 27vw;
+    height: 91vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 5vh;
+    right: 0px;
+}
+
+.filter-div{
+    width: 20vw;
+    height: 76vh;
+    background: linear-gradient(white, #E2C9F0);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0vw 0.8vh 0.7vh 0vh rgba(0, 0, 0, 25%);
+    border-radius: 1vw;
+}
+
+.buttons-filter{
+    width: 17vw;
+    height: 21vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.text-filter{
+    font-size: calc(1vw + 1vh);
+    margin-top: 2vh;
+}
+
+.button-filter{
+    width: 16vw;
+    height: 4.6vh;
+    font-size: calc(0.7vw + 0.7vh);
+    color: #9A81B6;
+    border-radius: 0.5vw;
+    background-color: #F2E1FD;
+    border-style: none;
+    margin-bottom: 1.5vh;
+}
+
