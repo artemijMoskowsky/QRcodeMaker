@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Registration{% endblock  %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'registration/css/styles.css' %}">
+{% endblock  %}
+
+{% block content %}
+    <div class = "main">
+        
+        <div class="test">
+            <div class="registration-container">
+                <h2>Реєстрація</h2>
+                <form method="post" action="{% url 'reg' %}" class="registration-box">
+                    {% csrf_token %}
+                    <p class="input_holder">Ім'я користувача:</p>
+                    <input class = "reg_input" type = "text" name = "username" placeholder = "Введіть ім'я" required>
+                    <p class="input_holder">Email користувача:</p>
+                    <input class = "reg_input" type = "email" name = "email" placeholder = "Введіть email" required>
+                    <p class="input_holder">Пароль користувача:</p>
+                    <input class = "reg_input" type = "password" name = "password" placeholder = "Введіть пароль" required>
+                    <p>Якщо у вас вже є аккаунт натисніть <a href="{% url 'login' %}">тут</a>.</p>
+                    <button type = "submit" class = "reg_submit">Зареєструватися</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="test-2">
+            <div class="image-qr">
+                <img src="{% static 'registration/images/QRCODE.png' %}" alt="error with qrcode image, line 30">
+            </div>
+        </div>
+    </div>
+   
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+{% endblock  %}
