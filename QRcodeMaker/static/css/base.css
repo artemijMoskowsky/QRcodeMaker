@@ -1,10 +1,16 @@
 body {
     padding: 0px;
     margin: 0px;
+    overflow-x: hidden;
+}
+
+#logo {
+    width: calc(2vw + 3.7vh);
+    height: calc(2vw + 3.7vh);
 }
 
 footer {
-    background-color: linear-gradient(281deg, #5C2A66 0%, #762A73 44%, #7C3088 70%, #69286F 93%);
+    background: linear-gradient(281deg, #5C2A66 0%, #762A73 44%, #7C3088 70%, #69286F 93%);
     font-family: Ysabeau Infant;
     color: white;
     display: flex;
@@ -25,6 +31,7 @@ footer a{
 #footer-links {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
 }
 

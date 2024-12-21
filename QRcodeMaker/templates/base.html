@@ -17,21 +17,20 @@
             <div id="header-start">
                 <img src="{% static 'images/Logo.png' %}" alt="">
                 <a href="/">Головна</a>
-                <a href="/create_qrcode">Створити QR код</a>
-                <a href="/my_qrcodes">Мої QR коди</a>
+                <a href="/qrcodes/create_qrcode">Створити QR код</a>
+                <a href="/qrcodes/my_qrcodes">Мої QR коди</a>
                 <a href="/contacts">Контакти</a>
             </div>
             <div id="header-end">
                 <p> {{ user.username }} </p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}">Вийти</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Увійти</a>
+                {% endif %}
                 <img src="{% static 'images/Account.png' %}" alt="">
             </div>
         </header>
-
-        {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}">Вийти</a>
-        {% else %}
-            <a href="{% url 'login' %}">Увійти</a>
-        {% endif %}
 
         {% block content %}
         
@@ -40,7 +39,7 @@
 
         <footer>
             <div id="footer-placer1">
-                <img src="{% static 'images/Logo.png' %}" alt="">
+                <img id="logo" src="{% static 'images/Logo.png' %}" alt="">
                 <div id="footer-links">
                     <h1>QRcodeMaker</h1>
                     <a href="/create_qrcode"></a>
