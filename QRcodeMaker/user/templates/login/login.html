@@ -19,8 +19,8 @@
                     {% csrf_token %}
                     <p class="input_holder">Ім'я користувача:</p>
                     <input class="log_input" type="text" name="username" placeholder="Введіть ім'я">
-                    <p class="input_holder">Email користувача:</p>
-                    <input class="log_input" type="email" name="email" placeholder="Введіть email">
+                    {% comment %} <p class="input_holder">Email користувача:</p>
+                    <input class="log_input" type="email" name="email" placeholder="Введіть email"> {% endcomment %}
                     <p class="input_holder">Пароль користувача:</p>
                     <input class="log_input" type="password" name="password" placeholder="Введіть пароль">
                     <p>Якщо у вас немає аккаунту натисніть <a href="{% url 'reg' %}">тут</a>.</p>

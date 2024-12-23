@@ -43,7 +43,11 @@ def render_login(request):
             return redirect('login')
            
     return render(request=request,template_name="login/login.html")
+
 def render_logout(request):
     logout(request)
     messages.success(request, 'Ви вийшли із системи.') 
     return redirect('login')  
+
+def render_account(request):
+    return render(request=request, template_name="account/account.html")
