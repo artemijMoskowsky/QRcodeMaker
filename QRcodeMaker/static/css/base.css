@@ -2,6 +2,21 @@ body {
     padding: 0px;
     margin: 0px;
     overflow-x: hidden;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.main {
+    min-height: 90vh;
+}
+
+#user-name {
+    font-family: Ysabeau Infant;
+    font-size: calc(1vh + 1vw);
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
 }
 
 #logo {

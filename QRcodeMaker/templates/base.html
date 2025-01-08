@@ -22,7 +22,7 @@
                 <a href="/contacts">Контакти</a>
             </div>
             <div id="header-end">
-                <p> {{ user.username }} </p>
+                <a id="user-name" href="{% url 'account' %}"> {{ user.username }} </a>
                 {% if user.is_authenticated %}
                     <a href="{% url 'logout' %}">Вийти</a>
                 {% else %}
