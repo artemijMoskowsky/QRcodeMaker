@@ -6,10 +6,6 @@ body {
     min-height: 100vh;
 }
 
-.main {
-    min-height: 90vh;
-}
-
 #user-name {
     font-family: Ysabeau Infant;
     font-size: calc(1vh + 1vw);
