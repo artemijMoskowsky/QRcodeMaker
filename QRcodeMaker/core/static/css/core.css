@@ -42,7 +42,7 @@ h1{
     justify-content: center;
     gap: 5vw;
     flex-wrap: wrap;
-    margin: 22vh 2vw;
+    margin: 15vh 2vw;
 }
 
 .plan-card {
@@ -54,7 +54,7 @@ h1{
     padding: 6vh 4vw;
     border-radius: 2vw;
     width: 12vw;
-    height: 50vh;
+    height: 45vh;
     box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -63,7 +63,7 @@ h1{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: 2vh;
+    font-size: 3vh;
     margin-left: -2vw;
     margin-top: -1vw;
 }
@@ -73,7 +73,7 @@ h1{
     justify-content: flex-start;
     align-items: flex-start;
     font-weight: 200;
-    font-size: 2vh;
+    font-size: 3vh;
     margin-left: -2vw;
     margin-top: -1vw;
 }
@@ -106,6 +106,16 @@ h1{
     font-weight: 1000;
     margin-top: 0.5vw;
     margin-left: -2vw;
+    font-size: 2vh;
+}
+
+.plan-card-storage {
+    font-size: 1.7vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: -2vw;
 }
 
 .plan-card button {
@@ -114,7 +124,6 @@ h1{
     padding: 1.5vh 2vw;
     border: none;
     border-radius: 1vw;
-    cursor: pointer;
     margin: 2vh -2vw;
     height: 7vh;
     width: 16vw;
@@ -144,5 +153,9 @@ h1{
     font-size: 3vh;
     border: none;
     border-radius: 1vw;
-    cursor: pointer;
+}
+
+
+#modal-window{
+    display: none;
 }

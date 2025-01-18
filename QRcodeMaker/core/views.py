@@ -14,7 +14,3 @@ def contacts(request):
         recipient = 'artemij.mosckowsky.01062008@gmail.com'
         send_mail("Зворотній зв'язок",f"{name} написав відгук:\n{problem}\n\nПошта для зворотнього зв'язку {email}",EMAIL_HOST_USER,[recipient],fail_silently=False,) 
     return render(request, 'contacts.html')
-
-
-
-    
