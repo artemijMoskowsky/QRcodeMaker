@@ -13,18 +13,19 @@ body{
     width: 100vw;
     height: 100vh;
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .div-qrcodes{
-    width: 68vw;
+    width: 90vw;
     height: 91vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-left: 3vw;
     flex-wrap: wrap;
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 .card{
@@ -85,19 +86,16 @@ p.my-text.second{
 
 
 .main-filter-div{
-    width: 27vw;
-    height: 91vh;
+    width: 60vw;
+    height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 5vh;
-    right: 0px;
 }
 
 .filter-div{
-    width: 20vw;
-    height: 76vh;
+    width: 60vw;
+    height: 20vh;
     background: linear-gradient(white, #E2C9F0);
     display: flex;
     align-items: center;
@@ -107,12 +105,11 @@ p.my-text.second{
 }
 
 .buttons-filter{
-    width: 17vw;
+    width: 31vw;
     height: 21vh;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    margin-top: 5vh;
+    justify-content:space-between;
 }
 
 .text-filter{
@@ -121,12 +118,12 @@ p.my-text.second{
 }
 
 .button-filter{
-    width: 16vw;
+    width: 10vw;
     height: 4.6vh;
     font-size: calc(0.7vw + 0.7vh);
     color: #9A81B6;
     border-radius: 0.5vw;
-    background-color: #F2E1FD;
+    background-color: #E7CAF9;
     border-style: none;
     margin-bottom: 1.5vh;
 }
