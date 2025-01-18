@@ -13,19 +13,18 @@ body{
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
 .div-qrcodes{
     width: 90vw;
-    height: 91vh;
+    height: 55vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 5vh;
+    margin-top: 6vh;
 }
 
 .card{
@@ -37,7 +36,6 @@ body{
     background-color: #EBDBF0;
     border-radius: 0.8vw;
     box-shadow: 0px 0px 0.2vw 0.3vw #d8d8d8;
-    margin-top: 5vh;
 }
 
 .my-qrcode{
@@ -91,6 +89,7 @@ p.my-text.second{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 4vh;
 }
 
 .filter-div{
