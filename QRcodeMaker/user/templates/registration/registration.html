@@ -18,10 +18,21 @@
                     {% csrf_token %}
                     <p class="input_holder">Ім'я користувача:</p>
                     <input class = "reg_input" type = "text" name = "username" placeholder = "Введіть ім'я" required>
+                    {% for er in name %}
+                        <p class="error">{{ er }}</p>
+                    {% endfor %}
                     <p class="input_holder">Email користувача:</p>
                     <input class = "reg_input" type = "email" name = "email" placeholder = "Введіть email" required>
+                    {% for er in email %}
+                        <p class="error">{{ er }}</p>
+                    {% endfor %}
                     <p class="input_holder">Пароль користувача:</p>
                     <input class = "reg_input" type = "password" name = "password" placeholder = "Введіть пароль" required>
+                    <p class="input_holder">Підтвердження паролю:</p>
+                    <input class = "reg_input" type = "password" name = "passwordConfirm" placeholder = "Введіть пароль" required>
+                    {% for er in password %}
+                        <p class="error">{{ er }}</p>
+                    {% endfor %}
                     <p>Якщо у вас вже є аккаунт натисніть <a href="{% url 'login' %}">тут</a>.</p>
                     <button type = "submit" class = "reg_submit">Зареєструватися</button>
                 </form>
@@ -34,14 +45,6 @@
             </div>
         </div>
     </div>
-   
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li class="{{ message.tags }}">{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
 
 
 {% endblock  %}

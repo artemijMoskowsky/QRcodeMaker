@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
 }
 
-#user-name {
+#user-name, .user-link{
     font-family: Ysabeau Infant;
     font-size: calc(1vh + 1vw);
     text-align: center;
@@ -14,6 +14,8 @@ body {
     text-decoration: none;
     color: black;
 }
+
+
 
 #logo {
     width: calc(2vw + 3.7vh);
@@ -37,6 +39,10 @@ footer a{
 #footer-placer1 {
     display: flex;
     height: 100%;
+}
+#footer-placer1 img{
+    margin-top: 1.9vh;
+    margin-right: 1.9vh;
 }
 
 #footer-links {

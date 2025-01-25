@@ -24,9 +24,9 @@
             <div id="header-end">
                 <a id="user-name" href="{% url 'account' %}"> {{ user.username }} </a>
                 {% if user.is_authenticated %}
-                    <a href="{% url 'logout' %}">Вийти</a>
+                    <a class="user-link" href="{% url 'logout' %}">Вийти</a>
                 {% else %}
-                    <a href="{% url 'login' %}">Увійти</a>
+                    <a class="user-link" href="{% url 'login' %}">Увійти</a>
                 {% endif %}
                 <img src="{% static 'images/Account.png' %}" alt="">
             </div>

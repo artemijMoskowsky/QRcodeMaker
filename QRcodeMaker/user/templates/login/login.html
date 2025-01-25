@@ -23,6 +23,9 @@
                     <input class="log_input" type="email" name="email" placeholder="Введіть email"> {% endcomment %}
                     <p class="input_holder">Пароль користувача:</p>
                     <input class="log_input" type="password" name="password" placeholder="Введіть пароль">
+                    {% for er in error %}
+                        <p class="error">{{ er }}</p>
+                    {% endfor %}
                     <p>Якщо у вас немає аккаунту натисніть <a href="{% url 'reg' %}">тут</a>.</p>
                     <button class="login_submit" type="submit">Увійти</button>
                 </form>

@@ -101,3 +101,7 @@ body{
 .image-qr{
     margin-right: 10vw;
 }
+
+.error{
+    color: red;
+}
