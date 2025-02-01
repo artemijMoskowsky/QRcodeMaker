@@ -66,9 +66,12 @@ body{
     font-size: 14px;
 }
 
+h2{
+    font-size: calc(0.9vw + 1.7vh);
+}
 
 .login-box p {
-    font-size: 14px;
+    font-size: calc(0.7vw + 1.2vh);
     text-align: center;
 }
 

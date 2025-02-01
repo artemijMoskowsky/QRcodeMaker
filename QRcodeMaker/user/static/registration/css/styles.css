@@ -21,7 +21,7 @@ body{
 .test {
     margin-left: 10vw;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 2%;
     width: 90%; 
     max-width: 1200px; 
     padding: 10px;
@@ -38,7 +38,7 @@ body{
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
 }
 
@@ -63,7 +63,7 @@ body{
 
 
 .registration-box p {
-    font-size: 14px;
+    font-size: calc(0.7vw + 1.2vh);
     text-align: center;
 }
 
