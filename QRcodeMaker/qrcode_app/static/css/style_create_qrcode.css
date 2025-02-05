@@ -30,7 +30,7 @@ body{
 
 .url-link{
     width: 47vw;
-    height: 24vh;
+    height: 20vh;
     display: flex;
     background: linear-gradient(to right, white, #E2C9F0);
     align-items: center;
@@ -43,12 +43,19 @@ body{
     color: rgb(138, 104, 120);
     font-size: calc(0.7vw + 0.7vh);
     text-align: center;
-    margin-top: 2.2vh;
+    margin-top: 1vh;
 }
 
-.form-url-link{
-    width: 40vw;
-    height: 12vh;
+.main-form{
+    width: 50vw;
+    height: 80vh;
+}
+
+.main-posit{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    
 }
 
 .input-url{
@@ -74,7 +81,7 @@ input::placeholder {
     width: 47vw;
     height: 48vh;
     background: linear-gradient(to right, white, #E2C9F0);
-    margin-top: 10vh;
+    margin-top: 5vh;
     border-radius: 1.5vw;
     display: flex;
     flex-direction: column;
