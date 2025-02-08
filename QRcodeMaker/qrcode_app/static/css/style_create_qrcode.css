@@ -30,7 +30,7 @@ body{
 
 .url-link{
     width: 47vw;
-    height: 24vh;
+    height: 20vh;
     display: flex;
     background: linear-gradient(to right, white, #E2C9F0);
     align-items: center;
@@ -43,12 +43,19 @@ body{
     color: rgb(138, 104, 120);
     font-size: calc(0.7vw + 0.7vh);
     text-align: center;
-    margin-top: 2.2vh;
+    margin-top: 1vh;
 }
 
-.form-url-link{
-    width: 40vw;
-    height: 12vh;
+.main-form{
+    width: 50vw;
+    height: 80vh;
+}
+
+.main-posit{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    
 }
 
 .input-url{
@@ -74,7 +81,7 @@ input::placeholder {
     width: 47vw;
     height: 48vh;
     background: linear-gradient(to right, white, #E2C9F0);
-    margin-top: 10vh;
+    margin-top: 5vh;
     border-radius: 1.5vw;
     display: flex;
     flex-direction: column;
@@ -163,4 +170,310 @@ button.qr-button.second{
     color: #78415C;
     font-size: calc(1vw + 1vh);
     margin-left: 0.4vw;
+}
+
+
+.modal-window-color{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh;
+}
+
+.color-window{
+    width: 57vw;
+    height: 75vh;
+    background: linear-gradient(to right, #E2C9F0, #FFFFFF);
+    border-radius: 2vw;
+}
+
+.color-center{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12vh;
+}
+
+.choose-qr{
+    font-size: calc(1vw + 1vh);
+    color: rgb(80, 8, 41);
+    font-weight: bold;
+    text-align: center;
+}
+
+.chooce-background{
+    font-size: calc(0.9vw + 0.9vh);
+    color: #9A81B6;
+    font-weight:lighter;
+    text-align: center;
+}
+
+.div-colors{
+    width: 41vw;
+    height: 12vh;
+    background-color: #E5C6F6;
+    box-shadow: 0vw 0.6vh 0.3vh 0vh #CFABE3;
+    border-radius: 0.6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 2vh; */
+}
+
+.colors-buttons{
+    width: 38vw;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.color{
+    width: 3vw;
+    height: 6.5vh;
+    border-radius: 100%;
+    border: none;
+}
+
+.dop-color{
+    width: 57vw;
+    height: 69vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+.confirm-button{
+    width: 14vw;
+    height: 9vh;
+    background: linear-gradient(to right, #EBC5FF, #B48CCA);
+    border-radius: 1vw;
+    border: none;
+    box-shadow: 0vw 0.4vh 0.3vh 0vh #A882BD;
+    
+}
+
+.text-confirm{
+    font-size: calc(0.8vw + 0.7vh);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+button.color.red-1{
+    background-color: red;
+}
+
+button.color.orange-1{
+    background-color: #FF4000;
+}
+
+button.color.yellow-1{
+    background-color: #FBFF00;
+}
+
+button.color.green-1{
+    background-color: #70FF02;
+}
+
+button.color.lightblue-1{
+    background-color: #00A2FF;
+}
+
+button.color.blue-1{
+    background-color: #0900FF;
+}
+
+button.color.pink-1{
+    background-color: #FF87C1;
+}
+
+button.color.purple-1{
+    background-color: #B300FF;
+}
+
+
+
+
+button.color.red-2{
+    background-color: red;
+}
+
+button.color.orange-2{
+    background-color: #FF4000;
+}
+
+button.color.yellow-2{
+    background-color: #FBFF00;
+}
+
+button.color.green-2{
+    background-color: #70FF02;
+}
+
+button.color.lightblue-2{
+    background-color: #00A2FF;
+}
+
+button.color.blue-2{
+    background-color: #0900FF;
+}
+
+button.color.pink-2{
+    background-color: #FF87C1;
+}
+
+button.color.purple-2{
+    background-color: #B300FF;
+}
+
+
+
+
+.modal-window-logo{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh;
+
+}
+
+.logo-window{
+    width: 42vw;
+    height: 50vh;
+    background: linear-gradient(to right, #E2C9F0, #FFFFFF);
+    border-radius: 2vw;
+}
+
+.center-logo{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purple-card{
+    width: 33vw;
+    height: 21vh;
+    background: linear-gradient(to right, #D2B6E1, #C298D9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 1vw;
+}
+
+.add-logo-card{
+    width: 11vw;
+    height: 7vh;
+    background: linear-gradient(to right, #A381D2, #5443B7, #682DB9);
+    border: none;
+    border-radius: 0.8vw;
+    margin-left: 2vw;
+}
+
+.add-logo-text{
+    font-size: calc(0.8vw + 0.8vh);
+    color: white;
+    font-weight:bold;
+    text-align: center;
+}
+
+.text-logo-qr{
+    font-size: calc(1.2vw + 1.2vh);
+    color: #794C9A;
+    font-weight:bold;
+    text-align: center;
+}
+
+.dop-logo{
+    width: 42vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+.camera-logo{
+    width: 5vw;
+    height: 9vh;
+}
+
+.modal-window-design{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh;
+}
+
+.design-window{
+    width: 53vw;
+    height: 70vh;
+    background: linear-gradient(to right, #E2C9F0, #FFFFFF);
+    border-radius: 2vw;
+}
+
+.center-design{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chooce-design{
+    font-size: calc(1.3vw + 1.3vh);
+    color: #794C9A;
+    font-weight:bold;
+    text-align: center;
+}
+
+.button-design{
+    width: 9vw;
+    height: 19vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E9C2FD;
+    border: none;
+    border-radius: 0.5vw;
+}
+
+.dop-design{
+    width: 53vw;
+    height: 58vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 4vh;
+}
+
+.buttons-design{
+    width: 34vw;
+    height: 19vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.design-photo{
+    width: 7vw;
+    height: 15vh;
+}
+
+button.confirm-button.second{
+    width: 13vw;
+    height: 8vh;
 }
