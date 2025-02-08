@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 from QRcodeMaker.settings import EMAIL_HOST_USER
+from django.http import HttpResponse
 
 # Create your views here.
 def render_home(request):
+    if request.method == "POST" and request.user.is_authenticated:
+        license = request.POST.get("subscribe")
+        request.user.licence = license
     return render(request = request, template_name = "core.html")
 
 def contacts(request):
