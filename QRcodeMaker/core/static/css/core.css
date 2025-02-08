@@ -157,5 +157,18 @@ h1{
 
 
 #modal-window{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecececcf;
+}
+
+.modal {
+    background-color: white;
+    padding: 10vh 10vw;
 }
