@@ -1,0 +1,166 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+body{
+    background: linear-gradient(to right, white, #E2C9F0);
+    font-family: 'Ysabeau Infant';
+    overflow-x: hidden;
+}
+
+
+.main-input{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+}
+
+.for-urls{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    width: 50vw;
+    height: 71vh;
+}
+
+
+.url-link{
+    width: 47vw;
+    height: 24vh;
+    display: flex;
+    background: linear-gradient(to right, white, #E2C9F0);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 1.5vw;
+
+}
+.url-name{
+    color: rgb(138, 104, 120);
+    font-size: calc(0.7vw + 0.7vh);
+    text-align: center;
+    margin-top: 2.2vh;
+}
+
+.form-url-link{
+    width: 40vw;
+    height: 12vh;
+}
+
+.input-url{
+    width: 40vw;
+    height: 8vh;
+    text-align: center;
+    border-radius: 1.2vw;
+    border-style: none;
+    background: linear-gradient(to right, #F8F8F8, #D8BFE5);
+    box-shadow: 0vw -0.3vh 0.3vh 0vh rgba(0, 0, 0, 25%);
+    margin-top: 1.5vh;
+}
+
+input::placeholder {
+    color: rgb(80, 8, 41);
+    font-size: calc(0.9vw + 1.0vh);
+    text-align: center;
+}
+
+
+
+.qrcode-settings{
+    width: 47vw;
+    height: 48vh;
+    background: linear-gradient(to right, white, #E2C9F0);
+    margin-top: 10vh;
+    border-radius: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-settings{
+    width: 40vw;
+    height: 20vh;
+    background: linear-gradient(to right, #F8F8F8, #D8BFE5);
+    border-radius: 0.5vw;
+    box-shadow: 0vw -0.3vh 0.3vh 0vh rgba(0, 0, 0, 25%);
+    margin-top: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.div-settings.third{
+    margin-bottom: 6vh;
+}
+
+.image-urls{
+    width: 3.4vw;
+    height: 7vh;
+    margin-left: 0.5vw;
+}
+
+.button-settings{
+    width: 2vw;
+    height: 4vh;
+    font-size: calc(2vw + 3vh);
+    color: rgb(80, 8, 41);
+    background: none;
+    border-style: none;
+    margin-bottom: 4vh;
+    margin-right: 0.5vw;
+}
+
+.text-settings{
+    font-size: 1.8vw;
+    color: rgb(80, 8, 41);
+}
+
+
+
+
+.qrcode-buttons{
+    width: 50vw;
+    height: 71vh;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.main-qrcode{
+    width: 22vw;
+    height: 47vh;
+}
+
+.div-buttons{
+    width: 18vw;
+    height: 24vh;
+    display: flex;
+    margin-top: 6vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+button.qr-button.second{
+    margin-top: 1.5vh;
+}
+
+
+.qr-button{
+    width: 17vw;
+    height: 9vh;
+    background-color: #CFB8DB;
+    border: 0.1vw solid #B3A0BD;
+    border-radius: 0.4vw;
+    font-size: calc(0.7vw + 0.7vh);
+    color: #78415C;
+    font-size: calc(1vw + 1vh);
+    margin-left: 0.4vw;
+}

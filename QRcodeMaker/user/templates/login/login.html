@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Login {% endblock %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'login/css/styles.css' %}">
+{% endblock  %}
+
+{% block content %}
+    <div class="main">
+
+        <div class="test">
+            <div class="login-container">
+                <h2>Логін</h2>
+                <form method="post" action="{% url 'login' %}" class = "login-box">
+                    {% csrf_token %}
+                    <p class="input_holder">Ім'я користувача:</p>
+                    <input class="log_input" type="text" name="username" placeholder="Введіть ім'я">
+                    {% comment %} <p class="input_holder">Email користувача:</p>
+                    <input class="log_input" type="email" name="email" placeholder="Введіть email"> {% endcomment %}
+                    <p class="input_holder">Пароль користувача:</p>
+                    <input class="log_input" type="password" name="password" placeholder="Введіть пароль">
+                    {% for er in error %}
+                        <p class="error">{{ er }}</p>
+                    {% endfor %}
+                    <p>Якщо у вас немає аккаунту натисніть <a href="{% url 'reg' %}">тут</a>.</p>
+                    <button class="login_submit" type="submit">Увійти</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="test-2">
+            <div class="image-qr">
+                <img src="{% static 'login/images/QRCODE.png' %}" alt="error with qrcode image, line 30">
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

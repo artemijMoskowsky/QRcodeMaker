@@ -1,0 +1,23 @@
+body{
+    background: linear-gradient(to right, #FFFFFF, #E2C9F0);    
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 90vh;
+}
+
+.account-settings{
+    margin-left: 10vw;
+    margin-right: auto;
+    margin-top: 5%;
+    width: 90%; 
+    max-width: 1200px; 
+    padding: 10px;
+    box-sizing: border-box;  
+    border-radius: 45px;
+    background-color: #E2C9F0;
+
+}
