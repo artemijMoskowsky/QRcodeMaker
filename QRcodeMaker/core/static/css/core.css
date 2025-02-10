@@ -172,4 +172,31 @@ h1{
 .modal {
     background-color: white;
     padding: 10vh 10vw;
+    border: none;
+    border-radius: 1vw;
+}
+
+.button-yes {
+    background-color: #5b1ea7;
+    color: #fff;
+    padding: 2vh 6vw;
+    font-size: 3vh;
+    border: none;
+    border-radius: 1vw;
+}
+
+.button-no {
+    background-color: #5b1ea7;
+    color: #fff;
+    padding: 2vh 6vw;
+    font-size: 3vh;
+    border: none;
+    border-radius: 1vw;
+}
+
+
+.div-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
