@@ -33,3 +33,21 @@ for (let button = 0; button < modalDesign.length; button++){
         headerOpacity.style.opacity = '0.5'
     })
 }
+
+const hiddenColorMain = document.querySelector('#colorInputMain')
+const hiddenColorBg = document.querySelector('#colorInputBg')
+const colorInputQr = document.querySelector('#colorInputOne')
+const colorInputBgQr = document.querySelector('#colorInputTwo')
+
+const buttonColorQr = document.querySelector('#buttonColorQR')
+
+
+buttonColorQr.addEventListener('click', ()=>{
+    hiddenColorMain.value = colorInputQr.value
+    hiddenColorBg.value = colorInputBgQr.value
+    modalWindowColor.style.display = "none"
+    bodyOpacity.style.opacity = '1'
+    headerOpacity.style.opacity = '1'
+    console.log(hiddenColorMain, hiddenColorBg)
+
+})

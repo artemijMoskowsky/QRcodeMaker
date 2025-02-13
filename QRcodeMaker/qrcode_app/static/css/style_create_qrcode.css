@@ -211,17 +211,6 @@ button.qr-button.second{
     text-align: center;
 }
 
-.div-colors{
-    width: 41vw;
-    height: 12vh;
-    background-color: #E5C6F6;
-    box-shadow: 0vw 0.6vh 0.3vh 0vh #CFABE3;
-    border-radius: 0.6vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* margin-top: 2vh; */
-}
 
 .colors-buttons{
     width: 38vw;
@@ -265,73 +254,12 @@ button.qr-button.second{
     text-align: center;
 }
 
-
-button.color.red-1{
-    background-color: red;
+.color-input-p{
+    width: 30vw;
+    height: 7vh;
+    
 }
 
-button.color.orange-1{
-    background-color: #FF4000;
-}
-
-button.color.yellow-1{
-    background-color: #FBFF00;
-}
-
-button.color.green-1{
-    background-color: #70FF02;
-}
-
-button.color.lightblue-1{
-    background-color: #00A2FF;
-}
-
-button.color.blue-1{
-    background-color: #0900FF;
-}
-
-button.color.pink-1{
-    background-color: #FF87C1;
-}
-
-button.color.purple-1{
-    background-color: #B300FF;
-}
-
-
-
-
-button.color.red-2{
-    background-color: red;
-}
-
-button.color.orange-2{
-    background-color: #FF4000;
-}
-
-button.color.yellow-2{
-    background-color: #FBFF00;
-}
-
-button.color.green-2{
-    background-color: #70FF02;
-}
-
-button.color.lightblue-2{
-    background-color: #00A2FF;
-}
-
-button.color.blue-2{
-    background-color: #0900FF;
-}
-
-button.color.pink-2{
-    background-color: #FF87C1;
-}
-
-button.color.purple-2{
-    background-color: #B300FF;
-}
 
 
 
@@ -396,7 +324,7 @@ button.color.purple-2{
 
 .dop-logo{
     width: 42vw;
-    height: 40vh;
+    height: 45vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -477,3 +405,4 @@ button.confirm-button.second{
     width: 13vw;
     height: 8vh;
 }
+

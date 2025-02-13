@@ -13,6 +13,8 @@
     <div class = 'main-input'>
             <form method="post" class = 'main-form'>
                 {% csrf_token %}
+                <input type='hidden' name = 'color-input' id = 'colorInputMain' value = ''>
+                <input type='hidden' name = 'color-input-bg' id = 'colorInputBg' value = ''>
                 <div class = 'main-posit'>
                     <div class = 'for-urls'>
                         <div class = 'url-link'>
@@ -43,6 +45,9 @@
                     </div>
 
                     <div class = 'qrcode-buttons'>
+                        <!-- {% for image in img_name %}
+                            <img src="{{images.url}}" alt="qr-code" class = 'main-qrcode'>
+                        {% endfor %} -->
                         {% if img_name %}
                             <img src="/media/images/{{ img_name }}" alt="qr-code" class = 'main-qrcode'>
                         {% endif %}
@@ -57,47 +62,22 @@
     </div>
 
     <div class = 'modal-window-color' id = 'modal-window-color-id'>
-        <div class = 'color-center'>
+        <div class = 'color-center' id = 'modalBg'>
             <div id = 'window-color' class = 'color-window'>
                 <div class = 'dop-color'>
                     <p class = 'choose-qr'>Оберіть кольори для вашого QR коду</p>
                     <p class="chooce-background">Колір QR коду:</p>
-                    <div class="div-colors">
-                        <div class="colors-buttons">
-                            <button type = 'button' class = 'color red-1'></button>
-                            <button type = 'button' class = 'color orange-1'></button>
-                            <button type = 'button' class = 'color yellow-1'></button>
-                            <button type = 'button' class = 'color green-1'></button>
-                            <button type = 'button' class = 'color lightblue-1'></button>
-                            <button type = 'button' class = 'color blue-1'></button>
-                            <button type = 'button' class = 'color pink-1'></button>
-                            <button type = 'button' class = 'color purple-1'></button>
-                        </div>
-                    </div>
+                    <input type="color" class = 'color-input-p' id = 'colorInputOne' value = '#000000'>
 
                     <p class = 'chooce-background'>Колір заднього фону:</p>
-                    <div class="div-colors">
-                        <div class="colors-buttons">
-                            <button type = 'button' class = 'color red-2'></button>
-                            <button type = 'button' class = 'color orange-2'></button>
-                            <button type = 'button' class = 'color yellow-2'></button>
-                            <button type = 'button' class = 'color green-2'></button>
-                            <button type = 'button' class = 'color lightblue-2'></button>
-                            <button type = 'button' class = 'color blue-2'></button>
-                            <button type = 'button' class = 'color pink-2'></button>
-                            <button type = 'button' class = 'color purple-2'></button>
-                        </div>
-                    </div>
+                    <input type="color" class = 'color-input-p' id = 'colorInputTwo' value = '#000000'>
 
-                    <button type = 'submit' class = 'confirm-button'>
+                    <button type = 'button' class = 'confirm-button' id = 'buttonColorQR'>
                         <p class = 'text-confirm'>Підтвердити</p>
                     </button>
                 </div>
-               
-
             </div>
-        </div>
-        
+        </div>   
     </div>
       
     <div class = 'modal-window-logo'>
@@ -106,11 +86,15 @@
                 <div class = 'dop-logo'>
                     <p class = 'text-logo-qr'>Оберіть логотип для вашого QR коду</p>
                     <div class = 'purple-card'>
+                        
                         <img src="{% static 'images/camera.png' %}" class = 'camera-logo'>
                         <button class = 'add-logo-card'>
                             <p class = 'add-logo-text'>Додати</p>
                         </button>
                     </div>
+                    <button class = 'add-logo-card'>
+                        <p class = 'add-logo-text'>Підтвердити</p>
+                    </button>
                 </div>
             </div>
         </div>
