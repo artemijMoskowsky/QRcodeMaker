@@ -17,10 +17,12 @@ def render_create_qrcode(request):
             my_qrcode = request.POST.get('data')
             qrcode_main_color = request.POST.get('color-input')
             qrcode_bg_color = request.POST.get('color-input-bg')
-            
-            if not qrcode_main_color:
+            # qrcode_logo = request.POST.get('logo-input')
+            # print(qrcode_logo)
+
+            if qrcode_main_color != True:
                 qrcode_main_color = "black"
-            if not qrcode_bg_color:
+            if qrcode_bg_color != True:
                 qrcode_bg_color = "white"
 
             if my_qrcode:
@@ -31,6 +33,9 @@ def render_create_qrcode(request):
 
                 my_full_qrcode.add_data(my_qrcode)
                 my_full_qrcode.make()
+
+                # name_logo = qrcode_logo
+
 
                 img_name = 'qrcode' + str(time.time()) + '.png'
                 image_colors = my_full_qrcode.make_image(fill_color = qrcode_main_color, back_color = qrcode_bg_color)

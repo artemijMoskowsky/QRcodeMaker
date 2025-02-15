@@ -51,3 +51,16 @@ buttonColorQr.addEventListener('click', ()=>{
     console.log(hiddenColorMain, hiddenColorBg)
 
 })
+
+const addLogoInput = document.querySelector('#addLogoInput')
+const hiddenLogoInput = document.querySelector('#logoInput')
+const confirmLogoButton = document.querySelector('#confirmLogo')
+
+confirmLogoButton.addEventListener('click', ()=>{
+    let fileLogo = addLogoInput.files[0]
+    hiddenLogoInput.value = fileLogo.name
+    console.log(hiddenLogoInput.value)
+    modalWindowLogo.style.display = "none"
+    bodyOpacity.style.opacity = '1'
+    headerOpacity.style.opacity = '1'
+})

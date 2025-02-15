@@ -15,6 +15,7 @@
                 {% csrf_token %}
                 <input type='hidden' name = 'color-input' id = 'colorInputMain' value = ''>
                 <input type='hidden' name = 'color-input-bg' id = 'colorInputBg' value = ''>
+                <input type='hidden' name = 'logo-input' id = 'logoInput' value="">
                 <div class = 'main-posit'>
                     <div class = 'for-urls'>
                         <div class = 'url-link'>
@@ -88,11 +89,12 @@
                     <div class = 'purple-card'>
                         
                         <img src="{% static 'images/camera.png' %}" class = 'camera-logo'>
-                        <button class = 'add-logo-card'>
+                        <input type="file" class = 'add-logo-card' id = 'addLogoInput' name="">
+                        <!-- <button class = 'add-logo-card'>
                             <p class = 'add-logo-text'>Додати</p>
-                        </button>
+                        </button> -->
                     </div>
-                    <button class = 'add-logo-card'>
+                    <button class = 'add-logo-card' id = 'confirmLogo'>
                         <p class = 'add-logo-text'>Підтвердити</p>
                     </button>
                 </div>
