@@ -7,23 +7,24 @@ from .models import CreateQr
 import io
 from django.core.files.base import ContentFile
 import datetime
-
+from PIL import Image
 
 # Create your views here.
 def render_create_qrcode(request):
     img_name = None
     if request.method == "POST":
         if request.user.is_authenticated:
+
             my_qrcode = request.POST.get('data')
             qrcode_main_color = request.POST.get('color-input')
             qrcode_bg_color = request.POST.get('color-input-bg')
-            # qrcode_logo = request.POST.get('logo-input')
-            # print(qrcode_logo)
-
-            if qrcode_main_color != True:
+            html_logo = request.FILES.get('logo-image')
+   
+            if not qrcode_main_color:
                 qrcode_main_color = "black"
-            if qrcode_bg_color != True:
+            if not qrcode_bg_color:
                 qrcode_bg_color = "white"
+
 
             if my_qrcode:
                 my_full_qrcode = qrcode.QRCode(
@@ -34,11 +35,20 @@ def render_create_qrcode(request):
                 my_full_qrcode.add_data(my_qrcode)
                 my_full_qrcode.make()
 
-                # name_logo = qrcode_logo
-
-
                 img_name = 'qrcode' + str(time.time()) + '.png'
                 image_colors = my_full_qrcode.make_image(fill_color = qrcode_main_color, back_color = qrcode_bg_color)
+                print(type(html_logo))
+                print(request.FILES)
+
+                if html_logo:
+                    print('image')
+                    logo = Image.open(html_logo)
+                    logo_size = logo.resize((500, 500))
+                    img_w, img_h = image_colors.size 
+                    logo_w, logo_h = logo_size.size
+                    pos = ((img_w - logo_w) // 2, (img_h - logo_h) // 2)
+                    image_colors.paste(logo, pos)
+               
 
                 qrcode_io = io.BytesIO()
                 image_colors.save(qrcode_io, format='PNG')
