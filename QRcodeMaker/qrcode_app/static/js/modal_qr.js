@@ -33,3 +33,34 @@ for (let button = 0; button < modalDesign.length; button++){
         headerOpacity.style.opacity = '0.5'
     })
 }
+
+const hiddenColorMain = document.querySelector('#colorInputMain')
+const hiddenColorBg = document.querySelector('#colorInputBg')
+const colorInputQr = document.querySelector('#colorInputOne')
+const colorInputBgQr = document.querySelector('#colorInputTwo')
+
+const buttonColorQr = document.querySelector('#buttonColorQR')
+
+
+buttonColorQr.addEventListener('click', ()=>{
+    hiddenColorMain.value = colorInputQr.value
+    hiddenColorBg.value = colorInputBgQr.value
+    modalWindowColor.style.display = "none"
+    bodyOpacity.style.opacity = '1'
+    headerOpacity.style.opacity = '1'
+    console.log(hiddenColorMain, hiddenColorBg)
+
+})
+
+const addLogoInput = document.querySelector('#addLogoInput')
+const hiddenLogoInput = document.querySelector('#logoInput')
+const confirmLogoButton = document.querySelector('#confirmLogo')
+
+confirmLogoButton.addEventListener('click', ()=>{
+    let fileLogo = addLogoInput.files[0]
+    hiddenLogoInput.value = fileLogo.name
+    console.log(hiddenLogoInput.value)
+    modalWindowLogo.style.display = "none"
+    bodyOpacity.style.opacity = '1'
+    headerOpacity.style.opacity = '1'
+})
