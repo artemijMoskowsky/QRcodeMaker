@@ -15,7 +15,7 @@
                 {% csrf_token %}
                 <input type='hidden' name = 'color-input' id = 'colorInputMain' value = ''>
                 <input type='hidden' name = 'color-input-bg' id = 'colorInputBg' value = ''>
-                <input type='hidden' name = 'logo-input' id = 'logoInput'>
+               
                 <div class = 'main-posit'>
                     <div class = 'for-urls'>
                         <div class = 'url-link'>
@@ -55,6 +55,7 @@
                         <div class = 'div-buttons'>
                             <button type="submit" class = 'qr-button main'>Створити Qr-код</button>
                             <button type="button" class = 'qr-button second'>Скачати як PNG</button>
+                            <input type='file' name = 'logo-input' id = 'logoInput' class = 'hidden-logo'>
                         </div>
                     </div>
             
@@ -81,7 +82,7 @@
         </div>   
     </div>
       
-    <div class = 'modal-window-logo'>
+    <div hidden class = 'modal-window-logo'>
         <div class = 'center-logo'>
             <div id = 'window-logo' class = 'logo-window'>
                 <div class = 'dop-logo'>
@@ -89,7 +90,7 @@
                     <div class = 'purple-card'>
                         
                         <img src="{% static 'images/camera.png' %}" class = 'camera-logo'>
-                        <input type="file" class = 'add-logo-card' id = 'addLogoInput' name="logo-image">
+                        <input type="file" class = 'add-logo-card' id = 'addLogoInput' name="logo-image" accept="image/png, image/jpeg ">
                         <!-- <button class = 'add-logo-card'>
                             <p class = 'add-logo-text'>Додати</p>
                         </button> -->

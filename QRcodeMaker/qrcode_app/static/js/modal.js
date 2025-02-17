@@ -17,7 +17,7 @@ const modalWindowLogo = document.querySelector('.modal-window-logo')
 
 for (let button = 0; button < modalLogo.length; button++){
     modalLogo[button].addEventListener("click", () =>{
-        modalWindowLogo.style.display = "flex"
+        modalWindowLogo.hidden = false
         bodyOpacity.style.opacity = '0.5'
         headerOpacity.style.opacity = '0.5'
     })
@@ -53,14 +53,17 @@ buttonColorQr.addEventListener('click', ()=>{
 })
 
 // const addLogoInput = document.querySelector('#addLogoInput')
-// const hiddenLogoInput = document.querySelector('#logoInput')
+const hiddenLogoInput = document.querySelector('#logoInput')
 const confirmLogoButton = document.querySelector('#confirmLogo')
+let logoInputFile = document.querySelector('#addLogoInput')
+
 
 confirmLogoButton.addEventListener('click', ()=>{
-    // let fileLogo = addLogoInput.files[0]
-    // hiddenLogoInput.value = fileLogo.name
-    // console.log(hiddenLogoInput.value)
-    modalWindowLogo.style.display = "none"
+    let dataTransfer = new DataTransfer()
+    // console.log(logoInputFile.files)
+    dataTransfer.items.add(logoInputFile.files[0])
+    hiddenLogoInput.files = dataTransfer.files
+    modalWindowLogo.hidden = true
     bodyOpacity.style.opacity = '1'
     headerOpacity.style.opacity = '1'
 })

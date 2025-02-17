@@ -265,7 +265,7 @@ button.qr-button.second{
 
 
 .modal-window-logo{
-    display: none;
+    /* display: none; */
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -406,3 +406,6 @@ button.confirm-button.second{
     height: 8vh;
 }
 
+.hidden-logo{
+    opacity: 0;
+}
