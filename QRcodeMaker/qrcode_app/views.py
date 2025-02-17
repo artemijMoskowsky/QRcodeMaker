@@ -20,9 +20,9 @@ def render_create_qrcode(request):
             # qrcode_logo = request.POST.get('logo-input')
             # print(qrcode_logo)
 
-            if qrcode_main_color != True:
+            if not qrcode_main_color:
                 qrcode_main_color = "black"
-            if qrcode_bg_color != True:
+            if not qrcode_bg_color:
                 qrcode_bg_color = "white"
 
             if my_qrcode:
