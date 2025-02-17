@@ -27,8 +27,8 @@ def render_create_qrcode(request):
                 qrcode_bg_color = "white"
                 print('white is bad')
 
-            def hex_to_rgb(hex_color):
-                return ImageColor.getrgb(hex_color)
+            def hex_rgb(hex):
+                return ImageColor.getrgb(hex)
 
 
             if my_qrcode:
@@ -49,7 +49,7 @@ def render_create_qrcode(request):
                 if html_logo:
                     print('image')
                     
-                    image_colors = my_full_qrcode.make_image(image_factory=StyledPilImage, embeded_image_path=html_logo, color_mask = SolidFillColorMask(front_color=hex_to_rgb(qrcode_main_color), back_color=hex_to_rgb(qrcode_bg_color)))
+                    image_colors = my_full_qrcode.make_image(image_factory=StyledPilImage, embeded_image_path=html_logo, color_mask = SolidFillColorMask(front_color=hex_rgb(qrcode_main_color), back_color=hex_rgb(qrcode_bg_color)))
 
                 qrcode_io = io.BytesIO()
                 image_colors.save(qrcode_io, format='PNG')
