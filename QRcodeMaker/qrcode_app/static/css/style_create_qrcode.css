@@ -378,6 +378,10 @@ button.qr-button.second{
     border-radius: 0.5vw;
 }
 
+.button-design:hover{
+    background: #d3b0e5;
+}
+
 .dop-design{
     width: 53vw;
     height: 58vh;

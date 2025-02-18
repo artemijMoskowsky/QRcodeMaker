@@ -68,3 +68,39 @@ confirmLogoButton.addEventListener('click', ()=>{
     headerOpacity.style.opacity = '1'
 })
 
+const designCircle = document.querySelector('#designCircle')
+const designSquare = document.querySelector('#designSquare')
+const designBorder = document.querySelector('#designBorder')
+const hiddenDesign = document.querySelector('#designHiddenInput')
+
+const confirmDesign = document.querySelector('#confirmDesign')
+
+
+
+designCircle.addEventListener('click', ()=>{
+    console.log('circle')
+    designCircle.value = 'circle'
+    hiddenDesign.value = designCircle.value
+    console.log(hiddenDesign)
+})
+
+designSquare.addEventListener('click', ()=>{
+    console.log('square')
+    designCircle.value = 'square'
+    hiddenDesign.value = designCircle.value
+    console.log(hiddenDesign)
+})
+
+designBorder.addEventListener('click', ()=>{
+    console.log('border')
+    designCircle.value = 'border'
+    hiddenDesign.value = designCircle.value
+    console.log(hiddenDesign)
+})
+
+confirmDesign.addEventListener('click', ()=>{
+    modalWindowDesign.style.display = "none"
+    bodyOpacity.style.opacity = '1'
+    headerOpacity.style.opacity = '1'
+    hiddenColorBg.value = colorInputBgQr.value
+})

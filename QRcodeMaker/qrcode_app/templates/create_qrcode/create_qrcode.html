@@ -15,6 +15,7 @@
                 {% csrf_token %}
                 <input type='hidden' name = 'color-input' id = 'colorInputMain' value = ''>
                 <input type='hidden' name = 'color-input-bg' id = 'colorInputBg' value = ''>
+                <input type='hidden' name = 'design-hidden' id = 'designHiddenInput' value = ''>
                
                 <div class = 'main-posit'>
                     <div class = 'for-urls'>
@@ -72,7 +73,7 @@
                     <input type="color" class = 'color-input-p' id = 'colorInputOne' value = '#000000'>
 
                     <p class = 'chooce-background'>Колір заднього фону:</p>
-                    <input type="color" class = 'color-input-p' id = 'colorInputTwo' value = '#000000'>
+                    <input type="color" class = 'color-input-p' id = 'colorInputTwo' value = '#ffffff'>
 
                     <button type = 'button' class = 'confirm-button' id = 'buttonColorQR'>
                         <p class = 'text-confirm'>Підтвердити</p>
@@ -109,18 +110,18 @@
                 <div class = 'dop-design'>
                     <p class = 'chooce-design'>Оберіть дизайн для вашого QR коду</p>
                     <div class = 'buttons-design'>
-                        <button type="button" class = 'button-design'>
+                        <button type="button" class = 'button-design' id = 'designCircle' value="circle">
                             <img src="{% static 'images/design_photo_1.png' %}" class = 'design-photo'>
                         </button>
-                        <button type="button" class = 'button-design'>
+                        <button type="button" class = 'button-design' id = 'designSquare' value="square">
                             <img src="{% static 'images/design_photo_3.png' %}" class = 'design-photo'>
                         </button>
-                        <button type="button" class = 'button-design'>
+                        <button type="button" class = 'button-design' id = 'designBorder' value="border">
                             <img src="{% static 'images/design_photo_2.png' %}" class = 'design-photo'>
                         </button>
                     </div>
                    
-                    <button type = 'submit' class = 'confirm-button second'>
+                    <button type = 'submit' class = 'confirm-button second' id = 'confirmDesign'>
                         <p class = 'text-confirm'>Підтвердити</p>
                     </button>
                 </div>

@@ -9,6 +9,9 @@ from django.core.files.base import ContentFile
 import datetime
 from PIL import ImageColor
 from qrcode.image.styledpil import SolidFillColorMask
+from qrcode.image.styles.moduledrawers.pil import GappedSquareModuleDrawer
+from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
+from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer
 
 # Create your views here.
 def render_create_qrcode(request):
@@ -20,6 +23,7 @@ def render_create_qrcode(request):
             qrcode_main_color = request.POST.get('color-input')
             qrcode_bg_color = request.POST.get('color-input-bg')
             html_logo = request.FILES.get('logo-input')
+            design_qrcode = request.POST.get('design-hidden')
    
             if not qrcode_main_color:
                 qrcode_main_color = "black"
@@ -42,17 +46,19 @@ def render_create_qrcode(request):
                 my_full_qrcode.make()
 
                 img_name = 'qrcode' + str(time.time()) + '.png'
-                image_colors = my_full_qrcode.make_image(fill_color = qrcode_main_color, back_color = qrcode_bg_color)
-                print(type(html_logo))
-                print(request.FILES)
 
-                if html_logo:
-                    print('image')
-                    
-                    image_colors = my_full_qrcode.make_image(image_factory=StyledPilImage, embeded_image_path=html_logo, color_mask = SolidFillColorMask(front_color=hex_rgb(qrcode_main_color), back_color=hex_rgb(qrcode_bg_color)))
+                if design_qrcode:
+                    if design_qrcode == 'circle':
+                        module_drawer=CircleModuleDrawer()
+                    elif design_qrcode == 'square':
+                        module_drawer = GappedSquareModuleDrawer(size_ratio=0.8)
+                    elif design_qrcode == 'border':
+                        module_drawer = RoundedModuleDrawer()
+
+                user_qrcode = my_full_qrcode.make_image(image_factory=StyledPilImage, embeded_image_path=html_logo, color_mask = SolidFillColorMask(front_color=hex_rgb(qrcode_main_color), back_color=hex_rgb(qrcode_bg_color)), module_drawer=module_drawer)
 
                 qrcode_io = io.BytesIO()
-                image_colors.save(qrcode_io, format='PNG')
+                user_qrcode.save(qrcode_io, format='PNG')
 
                 add_qrcode = CreateQr.objects.create(
                     image=ContentFile(qrcode_io.getvalue(), name = img_name),
