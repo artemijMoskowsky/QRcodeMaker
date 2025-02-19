@@ -22,73 +22,26 @@
             </div>
         </div>
 
-        <div class = 'div-qrcodes'>
-            <div class = 'card'>
-               
-                <img src="{% static 'images/my_qrcode.png' %}" class = 'my-qrcode'>
-                <div class = 'p-text'>
-                    <p class = 'my-text main'>QR code url -` `</p>
-                    <p class = 'my-text second'>Дата: 15.02.2025</p>
-                </div>
-                    <form method="post">
-                        <button class = 'button-png'>
-                            Завантажити як png
-                            <img src="{% static 'images/icon_download.png' %}" class = 'icon-download'>
-                        </button>
-                    </form>
-            </div>
 
-            <div class = 'card'>
-               
-                <img src="{% static 'images/my_qrcode.png' %}" class = 'my-qrcode'>
-                <div class = 'p-text'>
-                    <p class = 'my-text main'>QR code url -` `</p>
-                    <p class = 'my-text second'>Дата: 15.02.2025</p>
-                </div>
-                    <form method="post">
-                        <button class = 'button-png'>
-                            Завантажити як png
-                            <img src="{% static 'images/icon_download.png' %}" class = 'icon-download'>
-                        </button>
-                    </form>
-            </div>
+        <div class="div-qrcodes">
+            {% for qrcode in all_qrcodes %}
+                <div class="card">
+                    {% if qrcode.image %}
+                        <img src="{{ qrcode.image.url }}" class="my-qrcode">
+                    {% endif %}
 
-            <div class = 'card'>
-               
-                <img src="{% static 'images/my_qrcode.png' %}" class = 'my-qrcode'>
-                <div class = 'p-text'>
-                    <p class = 'my-text main'>QR code url -` `</p>
-                    <p class = 'my-text second'>Дата: 15.02.2025</p>
-                </div>
-                    <form method="post">
-                        <button class = 'button-png'>
-                            Завантажити як png
-                            <img src="{% static 'images/icon_download.png' %}" class = 'icon-download'>
-                        </button>
-                    </form>
-            </div>
+                    <div class="p-text">
+                        <p class="my-text main">QR code URL: {{ qrcode.link }}</p>
+                        <p class="my-text second">Дата: {{ qrcode.date }}</p>
+                    </div>
 
-            <div class = 'card'>
-               
-                <img src="{% static 'images/my_qrcode.png' %}" class = 'my-qrcode'>
-                <div class = 'p-text'>
-                    <p class = 'my-text main'>QR code url -` `</p>
-                    <p class = 'my-text second'>Дата: 15.02.2025</p>
-                </div>
-                    <form method="post">
-                        <button class = 'button-png'>
-                            Завантажити як png
+                    <button type = 'button' class = 'button-png'>
+                        Завантажити як png
                             <img src="{% static 'images/icon_download.png' %}" class = 'icon-download'>
-                        </button>
-                    </form>
-            </div>
+                    </button>
+                </div>
 
+            {% endfor %}
         </div>
-        
-
-
-
-
-
     </div>
 {% endblock %}

@@ -52,11 +52,21 @@ body{
 
 p.my-text.second{
     margin-top: 2.5vh;
+    width: 13vw;
+    height: 5vh;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .my-text{
     font-size: calc(0.7vw + 0.7vh);
     color: #606060;
+}
+
+p.my-text.main{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 

@@ -9,6 +9,7 @@ from django.core.files.base import ContentFile
 import datetime
 from PIL import ImageColor
 from qrcode.image.styledpil import SolidFillColorMask
+from qrcode.image.styles.moduledrawers.pil import SquareModuleDrawer
 from qrcode.image.styles.moduledrawers.pil import GappedSquareModuleDrawer
 from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
 from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer
@@ -47,6 +48,7 @@ def render_create_qrcode(request):
 
                 img_name = 'qrcode' + str(time.time()) + '.png'
 
+                module_drawer = SquareModuleDrawer()
                 if design_qrcode:
                     if design_qrcode == 'circle':
                         module_drawer=CircleModuleDrawer()
@@ -55,6 +57,7 @@ def render_create_qrcode(request):
                     elif design_qrcode == 'border':
                         module_drawer = RoundedModuleDrawer()
 
+                
                 user_qrcode = my_full_qrcode.make_image(image_factory=StyledPilImage, embeded_image_path=html_logo, color_mask = SolidFillColorMask(front_color=hex_rgb(qrcode_main_color), back_color=hex_rgb(qrcode_bg_color)), module_drawer=module_drawer)
 
                 qrcode_io = io.BytesIO()
@@ -69,7 +72,12 @@ def render_create_qrcode(request):
             return render(request, 'create_qrcode/create_qrcode.html', {'img_name': img_name})
         else:
             return redirect('reg')
-    
     return render(request=request, template_name='create_qrcode/create_qrcode.html')
+
 def render_my_qrcodes(request):
-    return render(request=request, template_name='my_qrcodes/my_qrcodes.html')
+    if not request.user.is_authenticated:
+        return redirect('reg')
+
+    all_user_qrcodes = CreateQr.objects.filter(author_id=request.user).order_by('-date')
+
+    return render(request, 'my_qrcodes/my_qrcodes.html', {'all_qrcodes': all_user_qrcodes})
