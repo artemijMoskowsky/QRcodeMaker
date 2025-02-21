@@ -14,14 +14,13 @@
         <div class = 'main-filter-div'>
             <div class = 'filter-div'>
                 <p class = 'text-filter'>Фільтрування</p>
-                <div class = 'buttons-filter'>
-                    <button class = 'button-filter main'>◦ Рік</button>
-                    <button class = 'button-filter second'>◦ Місяць</button>
-                    <button class = 'button-filter third'>◦ День</button>
-                </div>
+                <form method="post" class = 'main-form' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <button type = 'submit' class = 'button-filter main' name = 'date-filter' value="click">Дата</button>
+                    <button type = 'submit' class = 'button-filter second' name = 'link-filter' value="click">Посилання</button>
+                </form>
             </div>
         </div>
-
 
         <div class="div-qrcodes">
             {% for qrcode in all_qrcodes %}

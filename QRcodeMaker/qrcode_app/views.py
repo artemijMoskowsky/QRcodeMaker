@@ -77,7 +77,18 @@ def render_create_qrcode(request):
 def render_my_qrcodes(request):
     if not request.user.is_authenticated:
         return redirect('reg')
+    if request.method == "POST":
+        date_filter = request.POST.get('date-filter')
+        link_filter = request.POST.get('link-filter')
+        if date_filter:
+            print('date')
+        elif link_filter:
+            print('filter')
+        else:
+            print('none')
 
+
+# получаем все данные из модели, передаем пользователя, ставим фильтр по дате от старых к новым
     all_user_qrcodes = CreateQr.objects.filter(author_id=request.user).order_by('-date')
 
     return render(request, 'my_qrcodes/my_qrcodes.html', {'all_qrcodes': all_user_qrcodes})
