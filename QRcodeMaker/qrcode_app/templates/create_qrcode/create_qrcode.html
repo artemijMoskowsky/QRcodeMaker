@@ -6,59 +6,65 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/style_create_qrcode.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Ysabeau Infant'>
-    <script defer src="{% static 'js/modal.js' %}"></script>
+    <script defer src="{% static 'js/qrcode_modal.js' %}"></script>
 {% endblock %}
 
 {% block content %}
     <div class = 'main-input'>
-            <form method="post" class = 'main-form' enctype="multipart/form-data">
-                {% csrf_token %}
-                <input type='hidden' name = 'color-input' id = 'colorInputMain' value = ''>
-                <input type='hidden' name = 'color-input-bg' id = 'colorInputBg' value = ''>
-                <input type='hidden' name = 'design-hidden' id = 'designHiddenInput' value = ''>
+        {% if messages %}
+            {% for message in messages %}
+                <div class = 'error'>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+        <form method="post" class = 'main-form' enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type='hidden' name = 'color-input' id = 'colorInputMain' value = ''>
+            <input type='hidden' name = 'color-input-bg' id = 'colorInputBg' value = ''>
+            <input type='hidden' name = 'design-hidden' id = 'designHiddenInput' value = ''>
                
-                <div class = 'main-posit'>
-                    <div class = 'for-urls'>
-                        <div class = 'url-link'>
-                            <p class = 'url-name'>Ваш URL-адрес</p>
-                            <input type="text" placeholder="https://www.com" class = 'input-url' name="data" id="data">
-                        </div>
+            <div class = 'main-posit'>
+                <div class = 'for-urls'>
+                    <div class = 'url-link'>
+                        <p class = 'url-name'>Ваш URL-адрес</p>
+                        <input type="text" placeholder="https://www.com" class = 'input-url' name="data" id="data">
+                    </div>
                             
-                        <div class = 'qrcode-settings'>
-                            <div class = 'div-settings'>
-                                <img src="{% static 'images/drawing_icon.png' %}" class = 'image-urls'>
-                                <p class ='text-settings'>Налаштуйте кольори</p>
-                                <button type="button" class='button-settings' id = 'modal-color-button'>+</button>
-                            </div>
-
-                            <div class = 'div-settings'>
-                                <img src="{% static 'images/gallery.png' %}" class = 'image-urls'>
-                                <p class ='text-settings'>Додайте логотип</p>
-                                <button type = 'button' class='button-settings' id = 'modal-logo-button'>+</button>
-                            </div>
-
-                            <div class = 'div-settings third'>
-                                <img src="{% static 'images/qrcode.png' %}" class = 'image-urls'>
-                                <p class ='text-settings'>Виберіть дизайн</p>
-                                <button type="button" class='button-settings' id = 'modal-design-button'>+</button>
-                            </div>
+                    <div class = 'qrcode-settings'>
+                        <div class = 'div-settings'>
+                            <img src="{% static 'images/drawing_icon.png' %}" class = 'image-urls'>
+                            <p class ='text-settings'>Налаштуйте кольори</p>
+                            <button type="button" class='button-settings' id = 'modal-color-button'>+</button>
                         </div>
 
-                    </div>
+                        <div class = 'div-settings'>
+                            <img src="{% static 'images/gallery.png' %}" class = 'image-urls'>
+                            <p class ='text-settings'>Додайте логотип</p>
+                            <button type = 'button' class='button-settings' id = 'modal-logo-button'>+</button>
+                        </div>
 
-                    <div class = 'qrcode-buttons'>
-                        {% if img_name %}
-                            <img src="/media/images/{{ img_name }}" alt="qr-code" class = 'main-qrcode'>
-                        {% endif %}
-                        <div class = 'div-buttons'>
-                            <button type="submit" class = 'qr-button main'>Створити Qr-код</button>
-                            <button type="button" class = 'qr-button second'>Скачати як PNG</button>
-                            <input type='file' name = 'logo-input' id = 'logoInput' class = 'hidden-logo'>
+                        <div class = 'div-settings third'>
+                            <img src="{% static 'images/qrcode.png' %}" class = 'image-urls'>
+                            <p class ='text-settings'>Виберіть дизайн</p>
+                            <button type="button" class='button-settings' id = 'modal-design-button'>+</button>
                         </div>
                     </div>
-            
+
                 </div>
-                </form>
+
+                <div class = 'qrcode-buttons'>
+                    {% if img_name %}
+                        <img src="/media/images/{{ img_name }}" alt="qr-code" class = 'main-qrcode'>
+                    {% endif %}
+                    <div class = 'div-buttons'>
+                        <button type="submit" class = 'qr-button main'>Створити Qr-код</button>
+                        <button type="button" class = 'qr-button second'>Скачати як PNG</button>
+                        <input type='file' name = 'logo-input' id = 'logoInput' class = 'hidden-logo'>
+                    </div>
+                </div>
+            
+            </div>
+            </form>
     </div>
 
     <div class = 'modal-window-color' id = 'modal-window-color-id'>

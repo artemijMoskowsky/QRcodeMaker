@@ -4,6 +4,7 @@ import time
 import qrcode
 from qrcode.image.styledpil import StyledPilImage
 from .models import CreateQr
+from user.models import CustomUser
 import io
 from django.core.files.base import ContentFile
 import datetime
@@ -13,66 +14,88 @@ from qrcode.image.styles.moduledrawers.pil import SquareModuleDrawer
 from qrcode.image.styles.moduledrawers.pil import GappedSquareModuleDrawer
 from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
 from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer
+from django.contrib import messages
 
 # Create your views here.
 def render_create_qrcode(request):
     img_name = None
+    error_message = None
     if request.method == "POST":
         if request.user.is_authenticated:
 
-            my_qrcode = request.POST.get('data')
-            qrcode_main_color = request.POST.get('color-input')
-            qrcode_bg_color = request.POST.get('color-input-bg')
-            html_logo = request.FILES.get('logo-input')
-            design_qrcode = request.POST.get('design-hidden')
-   
-            if not qrcode_main_color:
-                qrcode_main_color = "black"
-            if not qrcode_bg_color:
-                qrcode_bg_color = "white"
-                print('white is bad')
+            limited = request.user.licence
+            license_variants = {'free': 1, 'standart': 10, 'pro': 100}
+            limit = license_variants.get(limited, None)
+            user_qrcodes = CreateQr.objects.filter(author_id = request.user).count()
+            
+            if limit and user_qrcodes >= limit:
+                error_message = messages.error(request, 'Ваш тариф не дозволяє створювати більше qr-кодів.')
+                return render(request, 'create_qrcode/create_qrcode.html') 
 
-            def hex_rgb(hex):
-                return ImageColor.getrgb(hex)
+            else:
+                my_qrcode = request.POST.get('data')
+                qrcode_main_color = request.POST.get('color-input')
+                qrcode_bg_color = request.POST.get('color-input-bg')
+                html_logo = request.FILES.get('logo-input')
+                design_qrcode = request.POST.get('design-hidden')
 
+                if not qrcode_main_color:
+                    qrcode_main_color = "black"
+                if not qrcode_bg_color:
+                    qrcode_bg_color = "white"
+                    print('white is bad')
 
-            if my_qrcode:
-                my_full_qrcode = qrcode.QRCode(
-                    version = 1,
-                    box_size = 10,
-                    border = 4,
-                    error_correction=qrcode.constants.ERROR_CORRECT_H)
+                def hex_rgb(hex):
+                    return ImageColor.getrgb(hex)
 
-                my_full_qrcode.add_data(my_qrcode)
-                my_full_qrcode.make()
+                if my_qrcode:
+                    my_full_qrcode = qrcode.QRCode(
+                        version=1,
+                        box_size=10,
+                        border=4,
+                        error_correction=qrcode.constants.ERROR_CORRECT_H
+                    )
 
-                img_name = 'qrcode' + str(time.time()) + '.png'
+                    my_full_qrcode.add_data(my_qrcode)
+                    my_full_qrcode.make()
 
-                module_drawer = SquareModuleDrawer()
-                if design_qrcode:
-                    if design_qrcode == 'circle':
-                        module_drawer=CircleModuleDrawer()
-                    elif design_qrcode == 'square':
-                        module_drawer = GappedSquareModuleDrawer(size_ratio=0.8)
-                    elif design_qrcode == 'border':
-                        module_drawer = RoundedModuleDrawer()
+                    img_name = 'qrcode' + str(time.time()) + '.png'
 
-                
-                user_qrcode = my_full_qrcode.make_image(image_factory=StyledPilImage, embeded_image_path=html_logo, color_mask = SolidFillColorMask(front_color=hex_rgb(qrcode_main_color), back_color=hex_rgb(qrcode_bg_color)), module_drawer=module_drawer)
+                    module_drawer = SquareModuleDrawer()
+                    if design_qrcode:
+                        if design_qrcode == 'circle':
+                            module_drawer = CircleModuleDrawer()
+                        elif design_qrcode == 'square':
+                            module_drawer = GappedSquareModuleDrawer(size_ratio=0.8)
+                        elif design_qrcode == 'border':
+                            module_drawer = RoundedModuleDrawer()
 
-                qrcode_io = io.BytesIO()
-                user_qrcode.save(qrcode_io, format='PNG')
+                    user_qrcode = my_full_qrcode.make_image(
+                        image_factory=StyledPilImage,
+                        embeded_image_path=html_logo,
+                        color_mask=SolidFillColorMask(
+                            front_color=hex_rgb(qrcode_main_color),
+                            back_color=hex_rgb(qrcode_bg_color)
+                        ),
+                        module_drawer=module_drawer
+                    )
 
-                add_qrcode = CreateQr.objects.create(
-                    image=ContentFile(qrcode_io.getvalue(), name = img_name),
-                    link = my_qrcode,
-                    author_id = request.user,
-                    date = datetime.datetime.today())
+                    qrcode_io = io.BytesIO()
+                    user_qrcode.save(qrcode_io, format='PNG')
 
-            return render(request, 'create_qrcode/create_qrcode.html', {'img_name': img_name})
+                    CreateQr.objects.create(
+                        image=ContentFile(qrcode_io.getvalue(), name=img_name),
+                        link=my_qrcode,
+                        author_id=request.user,
+                        date=datetime.datetime.today()
+                    )
+
+                return render(request, 'create_qrcode/create_qrcode.html', {'img_name': img_name})
         else:
             return redirect('reg')
-    return render(request=request, template_name='create_qrcode/create_qrcode.html')
+
+    return render(request, 'create_qrcode/create_qrcode.html')
+
 
 def render_my_qrcodes(request):
     all_links = CreateQr.objects.filter(author_id = request.user)
