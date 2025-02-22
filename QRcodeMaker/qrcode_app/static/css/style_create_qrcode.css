@@ -265,7 +265,7 @@ button.qr-button.second{
 
 
 .modal-window-logo{
-    display: none;
+    /* display: none; */
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -378,6 +378,10 @@ button.qr-button.second{
     border-radius: 0.5vw;
 }
 
+.button-design:hover{
+    background: #d3b0e5;
+}
+
 .dop-design{
     width: 53vw;
     height: 58vh;
@@ -406,3 +410,6 @@ button.confirm-button.second{
     height: 8vh;
 }
 
+.hidden-logo{
+    opacity: 0;
+}

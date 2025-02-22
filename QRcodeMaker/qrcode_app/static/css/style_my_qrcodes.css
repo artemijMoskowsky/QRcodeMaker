@@ -22,6 +22,7 @@ body{
     height: 55vh;
     display: flex;
     justify-content: space-around;
+    gap: 3vw;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 6vh;
@@ -52,11 +53,21 @@ body{
 
 p.my-text.second{
     margin-top: 2.5vh;
+    width: 13vw;
+    height: 5vh;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .my-text{
     font-size: calc(0.7vw + 0.7vh);
     color: #606060;
+}
+
+p.my-text.main{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
@@ -84,16 +95,16 @@ p.my-text.second{
 
 
 .main-filter-div{
-    width: 60vw;
+    width: 55vw;
     height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4vh;
+    margin-top: 1vh;
 }
 
 .filter-div{
-    width: 60vw;
+    width: 55vw;
     height: 20vh;
     background: linear-gradient(white, #E2C9F0);
     display: flex;
@@ -103,17 +114,26 @@ p.my-text.second{
     border-radius: 1vw;
 }
 
+.main-form{
+    width: 60vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+}
+
+.text-filter{
+    font-size: calc(1vw + 1vh);
+    margin-top: 2vh;
+}
+
 .buttons-filter{
     width: 31vw;
     height: 21vh;
     display: flex;
     align-items: center;
     justify-content:space-between;
-}
-
-.text-filter{
-    font-size: calc(1vw + 1vh);
-    margin-top: 2vh;
 }
 
 .button-filter{
