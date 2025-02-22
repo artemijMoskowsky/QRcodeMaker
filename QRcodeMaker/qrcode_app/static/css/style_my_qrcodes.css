@@ -11,7 +11,7 @@ body{
 
 .main-for-qrcodes{
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,13 +19,14 @@ body{
 
 .div-qrcodes{
     width: 90vw;
-    height: 55vh;
+    height: fit-content;
     display: flex;
     justify-content: space-around;
     gap: 3vw;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 6vh;
+    margin-bottom: 6vh;
 }
 
 .card{
