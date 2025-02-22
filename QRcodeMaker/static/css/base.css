@@ -1,12 +1,74 @@
 body {
     padding: 0px;
     margin: 0px;
+    overflow-x: hidden;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+#user-name, .user-link{
+    font-family: Ysabeau Infant;
+    font-size: calc(1vh + 1vw);
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+#logo {
+    width: calc(2vw + 3.7vh);
+    height: calc(2vw + 3.7vh);
+}
+
+footer {
+    background: linear-gradient(281deg, #5C2A66 0%, #762A73 44%, #7C3088 70%, #69286F 93%);
+    font-family: Ysabeau Infant;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 2vw;
+}
+
+footer a{
+    font-family: Ysabeau Infant;
+    color: white;
+}
+
+#footer-placer1 {
+    display: flex;
+    height: 100%;
+}
+#footer-placer1 img{
+    margin-top: 1.9vh;
+    margin-right: 1.9vh;
+}
+
+#footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+#footer-placer2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#contacts {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 header{
     border: 1px solid #D2D2D2;
     display: flex;
     justify-content: space-between;
+    background-color: white;
 }
 
 #header-start{

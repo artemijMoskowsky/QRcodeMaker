@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h2 class="contact-title">Виникли питання? Пишіть сюди</h2>
+
+    <div class="contact-form-container">
+        <form class="contact-form" method="post">
+            {% csrf_token %}
+            <label>Ім'я користувача:</label>
+            <input type="text" placeholder="Введіть ім'я" name = "name">
+
+            <label>Email користувача:</label>
+            <input type="email" placeholder="Введіть email" name = "email">
+
+            <label>Ваша проблема:</label>
+            <textarea placeholder="Опишіть вашу проблему, ми спробуємо її вирішити" name = "problem"></textarea>
+            <div class = "send-button-div">
+                <button class="send-button" type="submit">Надіслати</button>
+            </div>
+        </form>
+
+        <div class="contact-info">
+            <h3>Номер телефона гарячої лінії:</h3>
+            <div class="phone-number">+380-68-435-2135</div>
+            <div class="phone-number">+380-97-456-1123</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

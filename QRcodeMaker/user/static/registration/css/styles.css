@@ -5,8 +5,9 @@ body{
 
 .main{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
+    min-height: 90vh;
 }
 
 
@@ -103,4 +104,8 @@ body{
 
 .image-qr{
     margin-right: 10vw;
+}
+
+.error{
+    color: red;
 }
