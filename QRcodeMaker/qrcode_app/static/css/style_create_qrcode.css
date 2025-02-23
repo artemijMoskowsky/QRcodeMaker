@@ -55,7 +55,6 @@ body{
     width: 100vw;
     height: 100vh;
     display: flex;
-    
 }
 
 .input-url{
@@ -412,4 +411,16 @@ button.confirm-button.second{
 
 .hidden-logo{
     opacity: 0;
+}
+
+.error{
+    width: 100vw;
+    height: 2vh;
+    color: red;
+    font-size: calc(0.7vw + 0.7vh);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vh;
 }
