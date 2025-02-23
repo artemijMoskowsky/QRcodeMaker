@@ -47,24 +47,28 @@ body {
     text-align: left; 
 } 
 
-.login-box input { 
-    display: flex; 
-    justify-content: center; 
-    flex-direction: column; 
-    text-align: left; 
-    width: 100%; 
-    padding: calc(100vw * 0.01); 
-    margin: calc(100vw * 0.01) 0; 
-    border: 1px solid #ddd; 
-    border-radius: calc(100vw * 0.005); 
-    box-sizing: border-box; 
-    font-size: calc(100vw * 0.014); 
-} 
+.login-box input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
 
-.login-box p { 
-    font-size: calc(100vw * 0.014); 
-    text-align: center; 
-} 
+h2{
+    font-size: calc(0.9vw + 1.7vh);
+}
+
+.login-box p {
+    font-size: calc(0.7vw + 1.2vh);
+    text-align: center;
+}
 
 .login-box a { 
     color: #6a0dad; 

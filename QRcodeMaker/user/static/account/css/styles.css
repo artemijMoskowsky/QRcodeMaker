@@ -1,4 +1,74 @@
-body{
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f8e2ff, #e6ccff);
+}
+.account-settings {
+    background: white;
+    padding: 2vh;
+    border-radius: 2vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.2);
+    width: 40vw;
+    text-align: center;
+}
+.title {
+    font-size: 3vh;
+    color: #6a1b9a;
+    margin-bottom: 2vh;
+}
+.sett {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+}
+.info, .security {
+    width: 100%;
+    text-align: left;
+}
+.info h3, .security h3 {
+    margin-bottom: 1vh;
+    color: #6a1b9a;
+}
+.info p {
+    background: #f3e5f5;
+    padding: 1vh;
+    border-radius: 1vh;
+    text-align: center;
+}
+.security label {
+    display: block;
+    margin-top: 1.5vh;
+    font-weight: bold;
+    color: #6a1b9a;
+}
+.security input {
+    width: 100%;
+    padding: 1vh;
+    margin-top: 0.5vh;
+    border: 0.1vh solid #ccc;
+    border-radius: 1vh;
+    text-align: center;
+}
+.security button {
+    margin-top: 2vh;
+    background: #6a1b9a;
+    color: white;
+    padding: 1.5vh;
+    border: none;
+    border-radius: 1.5vh;
+    cursor: pointer;
+    width: 100%;
+}
+.security button:hover {
+    background: #4a148c;
+}
+
+
+/* body{
     background: linear-gradient(to right, #FFFFFF, #E2C9F0);    
 }
 
@@ -20,4 +90,4 @@ body{
     border-radius: 45px;
     background-color: #E2C9F0;
 
-}
+} */
