@@ -11,3 +11,6 @@ for (let i = 0; i < choosePlan.length; i++){
         console.log(subscribeInput.value)
     })
 }
+
+
+
