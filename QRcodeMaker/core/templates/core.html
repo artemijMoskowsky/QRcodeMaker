@@ -64,8 +64,8 @@
         {% csrf_token %}
         <input type="hidden" name="subscribe" class = "subscribe-input">
         <h1 class = "warning-text">Ви впевнені що хочете змінити підписку?</h1>
-        <button id = "confirn-button" type="submit">Так</button>
-        <button id = "cancel-button">Ні</button>
+        <button class="button-yes" id = "confirn-button" type="submit">Так</button>
+        <button class="button-no" id = "cancel-button">Ні</button>
     </form>
 </div>
 {% endblock %}
