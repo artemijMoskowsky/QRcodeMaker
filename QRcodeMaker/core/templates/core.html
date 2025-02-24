@@ -55,12 +55,10 @@
         
         <div class = "create-button">
             <h1>Перейти до створення QR коду</h1>
-            <button class = "create" id = "create-QRcode">Створити</button>
-            <script>
-                document.getElementById("create-QRcode").onclick = function(){
-                    window.location.href = "http://127.0.0.1:8000/qrcodes/create_qrcode/";
-                };
-            </script>
+            <form method="post">
+                {% csrf_token %}
+                <button class = "create" id = "create-QRcode" type = "submit" name = "create-QR" value = "1">Створити</button>
+            </form> 
         </div>
     </main>
 
