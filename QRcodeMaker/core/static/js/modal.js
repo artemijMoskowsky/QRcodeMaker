@@ -11,3 +11,6 @@ for (let i = 0; i < choosePlan.length; i++){
         console.log(subscribeInput.value)
     })
 }
+document.getElementById("create-QRcode").onclick = function(){
+    window.location.href = "http://127.0.0.1:8000/qrcodes/create_qrcode/";
+};
