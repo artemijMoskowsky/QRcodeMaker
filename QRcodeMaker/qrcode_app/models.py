@@ -7,4 +7,8 @@ class CreateQr(models.Model):
     author_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     date = models.DateField()
     link = models.TextField()
+
+    def delete_qrcode(self):
+        self.image.delete()
+        super(CreateQr, self).delete()
     

@@ -111,7 +111,9 @@ def render_my_qrcodes(request):
             all_links = all_links.order_by("link")
 
         elif delete_qrcode:
-            CreateQr.objects.filter(id=int(delete_qrcode)).delete()
+            # CreateQr.objects.filter(id=int(delete_qrcode)).delete()
+            model = CreateQr.objects.get(id=int(delete_qrcode))
+            model.delete_qrcode()
 
 
     return render(request, 'my_qrcodes/my_qrcodes.html', {'all_qrcodes': all_links})
