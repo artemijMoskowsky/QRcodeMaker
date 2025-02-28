@@ -176,6 +176,16 @@ h1{
     border-radius: 1vw;
 }
 
+.modal-placer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.modal-placer h2{
+    width: fit-content;
+}
+
 .button-yes {
     background-color: #5b1ea7;
     color: #fff;

@@ -12,6 +12,9 @@ from qrcode.image.styledpil import SolidFillColorMask
 from qrcode.image.styles.moduledrawers.pil import SquareModuleDrawer, CircleModuleDrawer, GappedSquareModuleDrawer, RoundedModuleDrawer
 from django.contrib import messages
 from django.urls import reverse
+from django.http import HttpResponse
+
+license_variants = {'free': 1, 'standart': 10, 'pro': 100}
 
 # Create your views here.
 def render_create_qrcode(request):
@@ -32,7 +35,6 @@ def render_create_qrcode(request):
                 qrcode_bg_color = "white"
 
             limited = request.user.licence
-            license_variants = {'free': 1, 'standart': 10, 'pro': 100}
             limit = license_variants.get(limited, None)
             user_qrcodes = CreateQr.objects.filter(author_id = request.user).count()
             
@@ -134,6 +136,10 @@ def render_create_qrcode(request):
 
 def render_my_qrcodes(request):
     all_links = CreateQr.objects.filter(author_id = request.user)
+    all_links = all_links[:license_variants[request.user.licence]]
+    date = request.user.licence_date.replace(tzinfo=None)
+    if date > datetime.datetime.now():
+        all_links = [all_links[0]]
 
     if not request.user.is_authenticated:
         return redirect('reg')
@@ -150,7 +156,6 @@ def render_my_qrcodes(request):
             all_links = all_links.order_by("link")
 
         elif delete_qrcode:
-            # CreateQr.objects.filter(id=int(delete_qrcode)).delete()
             model = CreateQr.objects.get(id=int(delete_qrcode))
             model.delete_qrcode()
 
@@ -160,4 +165,15 @@ def render_my_qrcodes(request):
 
 def view_qrcode(request, id):
     qr = CreateQr.objects.filter(id = id).first()
-    return redirect(qr.link)
+    date = qr.author_id.licence_date.replace(tzinfo=None)
+    try:
+        if date > datetime.datetime.now():
+            all_qr = CreateQr.objects.filter(author_id = qr.author_id)[:license_variants[qr.author_id.licence]]
+            if qr in all_qr:
+                return redirect(qr.link)
+        else:
+            all_qr = CreateQr.objects.filter(author_id = qr.author_id)
+            if qr.id == all_qr[0].id:
+                return redirect(qr.link)
+    except:
+        return HttpResponse(qr.link)
