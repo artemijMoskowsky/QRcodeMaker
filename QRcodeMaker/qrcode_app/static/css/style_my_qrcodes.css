@@ -12,6 +12,7 @@ body{
 .main-for-qrcodes{
     width: 100vw;
     height: fit-content;
+    min-height: 71.4vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -40,10 +41,83 @@ body{
     box-shadow: 0px 4px 20px 0vw rgba(0, 0, 0, 0.25);
 }
 
+.trash-can{
+    width: 1.3vw;
+    height: 3vh;
+}
+
+.delete-card{
+    border: none;
+    background: none;
+}
+
+.layout-trash{
+    width: 16.5vw;
+    display: flex;
+    justify-content: right;
+    margin-top: 1vh;
+}
+
+.bg-modal-delete{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh;
+}
+
+.delete-center{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12vh;
+}
+
+.modal-delete{
+    width: 27vw;
+    height: 35vh;
+    background: linear-gradient(to right, #E2C9F0, #FFFFFF);
+    border-radius: 2vw;
+}
+
+.dop-delete{
+    width: 27vw;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+.buttons-delete{
+    width: 23vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text-delete{
+    font-size: calc(0.8vw + 0.8vh);
+    color: #480048;
+}
+
+.chooce-delete{
+    width: 10vw;
+    height: 5vh;
+    background-color: #d4b9e7;
+    font-size: calc(0.5vw + 0.5vh);
+    border: none;
+    border-radius: 6%;
+    color: #3b0048;
+}
+
 .my-qrcode{
     width: 12vw;
     height: 26vh;
-    margin-top: 4vh;
 }
 
 .p-text{

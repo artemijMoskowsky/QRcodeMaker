@@ -2,13 +2,14 @@ const modalColor = document.querySelector('#modal-color-button')
 const modalWindowColor = document.querySelector('.modal-window-color')
 const bodyOpacity = document.querySelector('.main-input')
 const headerOpacity = document.querySelector('header')
-
+const footerOpacity = document.querySelector('footer')
 
 
 modalColor.addEventListener("click", () =>{
         modalWindowColor.style.display = "flex"
         bodyOpacity.style.opacity = '0.5'
         headerOpacity.style.opacity = '0.5'
+        footerOpacity.style.opacity = '0.5'
 })
 
 const modalLogo = document.querySelector('#modal-logo-button')
@@ -18,6 +19,7 @@ modalLogo.addEventListener("click", () =>{
         modalWindowLogo.hidden = false
         bodyOpacity.style.opacity = '0.5'
         headerOpacity.style.opacity = '0.5'
+        footerOpacity.style.opacity = '0.5'
     })
 
 const modalDesign = document.querySelector('#modal-design-button')
@@ -27,6 +29,7 @@ modalDesign.addEventListener("click", () =>{
         modalWindowDesign.style.display = "flex"
         bodyOpacity.style.opacity = '0.5'
         headerOpacity.style.opacity = '0.5'
+        footerOpacity.style.opacity = '0.5'
 })
 
 const hiddenColorMain = document.querySelector('#colorInputMain')
@@ -43,6 +46,7 @@ buttonColorQr.addEventListener('click', ()=>{
     modalWindowColor.style.display = "none"
     bodyOpacity.style.opacity = '1'
     headerOpacity.style.opacity = '1'
+    footerOpacity.style.opacity = '1'
     console.log(hiddenColorMain, hiddenColorBg)
 
 })
@@ -59,6 +63,7 @@ confirmLogoButton.addEventListener('click', ()=>{
     modalWindowLogo.hidden = true
     bodyOpacity.style.opacity = '1'
     headerOpacity.style.opacity = '1'
+    footerOpacity.style.opacity = '1'
 })
 
 const designCircle = document.querySelector('#designCircle')
@@ -95,5 +100,7 @@ confirmDesign.addEventListener('click', ()=>{
     modalWindowDesign.style.display = "none"
     bodyOpacity.style.opacity = '1'
     headerOpacity.style.opacity = '1'
+    footerOpacity.style.opacity = '1'
     hiddenColorBg.value = colorInputBgQr.value
 })
+

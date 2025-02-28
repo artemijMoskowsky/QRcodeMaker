@@ -3,17 +3,13 @@ from django.conf import settings
 import time
 import qrcode
 from qrcode.image.styledpil import StyledPilImage
-from .models import CreateQr
-from user.models import CustomUser
+from .models import CreateQr, CustomUser
 import io
 from django.core.files.base import ContentFile
 import datetime
 from PIL import ImageColor
 from qrcode.image.styledpil import SolidFillColorMask
-from qrcode.image.styles.moduledrawers.pil import SquareModuleDrawer
-from qrcode.image.styles.moduledrawers.pil import GappedSquareModuleDrawer
-from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
-from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer
+from qrcode.image.styles.moduledrawers.pil import SquareModuleDrawer, CircleModuleDrawer, GappedSquareModuleDrawer, RoundedModuleDrawer
 from django.contrib import messages
 from django.urls import reverse
 
@@ -145,6 +141,7 @@ def render_my_qrcodes(request):
     if request.method == "POST":
         date_filter = request.POST.get('date-filter')
         link_filter = request.POST.get('link-filter')
+        delete_qrcode = request.POST.get('button-delete')
 
         if date_filter:
             all_links = all_links.order_by("-date") 
@@ -152,8 +149,11 @@ def render_my_qrcodes(request):
         elif link_filter:
             all_links = all_links.order_by("link")
 
-        else:
-            print('none')
+        elif delete_qrcode:
+            # CreateQr.objects.filter(id=int(delete_qrcode)).delete()
+            model = CreateQr.objects.get(id=int(delete_qrcode))
+            model.delete_qrcode()
+
 
     return render(request, 'my_qrcodes/my_qrcodes.html', {'all_qrcodes': all_links})
 
