@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} My_qrcodes {% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/style_my_qrcodes.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Ysabeau Infant'>
+{% endblock %}
+
+{% block content %}
+    <div class = 'main-for-qrcodes'>
+
+        <div class = 'main-filter-div'>
+            <div class = 'filter-div'>
+                <p class = 'text-filter'>Фільтрування</p>
+                <form method="post" class = 'main-form' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <button type = 'submit' class = 'button-filter main' name = 'date-filter' value="click">Дата</button>
+                    <button type = 'submit' class = 'button-filter second' name = 'link-filter' value="click">Посилання</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="div-qrcodes">
+            {% for qrcode in all_qrcodes %}
+                <div class="card">
+                    {% if qrcode.image %}
+                        <img src="{{ qrcode.image.url }}" class="my-qrcode">
+                    {% endif %}
+
+                    <div class="p-text">
+                        <p class="my-text main">QR code URL: {{ qrcode.link }}</p>
+                        <p class="my-text second">Дата: {{ qrcode.date }}</p>
+                    </div>
+
+                    <button type = 'button' class = 'button-png'>
+                        Завантажити як png
+                            <img src="{% static 'images/icon_download.png' %}" class = 'icon-download'>
+                    </button>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

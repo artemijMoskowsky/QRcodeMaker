@@ -8,3 +8,5 @@ class CreateQr(models.Model):
     date = models.DateField()
     link = models.TextField()
     
+    def __str__(self):
+        return f"{self.link}"

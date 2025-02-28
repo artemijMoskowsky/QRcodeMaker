@@ -15,6 +15,7 @@ from qrcode.image.styles.moduledrawers.pil import GappedSquareModuleDrawer
 from qrcode.image.styles.moduledrawers.pil import RoundedModuleDrawer
 from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer
 from django.contrib import messages
+from django.urls import reverse
 
 # Create your views here.
 def render_create_qrcode(request):
@@ -33,7 +34,6 @@ def render_create_qrcode(request):
                 qrcode_main_color = "black"
             if not qrcode_bg_color:
                 qrcode_bg_color = "white"
-                print('white is bad')
 
             limited = request.user.licence
             license_variants = {'free': 1, 'standart': 10, 'pro': 100}
@@ -55,7 +55,6 @@ def render_create_qrcode(request):
                     qrcode_main_color = "black"
                 if not qrcode_bg_color:
                     qrcode_bg_color = "white"
-                    print('white is bad')
 
                 def hex_rgb(hex):
                     return ImageColor.getrgb(hex)
@@ -68,7 +67,38 @@ def render_create_qrcode(request):
                         error_correction=qrcode.constants.ERROR_CORRECT_H
                     )
 
-                    my_full_qrcode.add_data(my_qrcode)
+                    my_full_qrcode.add_data("")
+                    my_full_qrcode.make()
+
+                    img_name = 'qrcode' + str(time.time()) + '.png'
+
+                    module_drawer = SquareModuleDrawer()
+                    if design_qrcode:
+                        if design_qrcode == 'circle':
+                            module_drawer = CircleModuleDrawer()
+                        elif design_qrcode == 'square':
+                            module_drawer = GappedSquareModuleDrawer(size_ratio=0.8)
+                        elif design_qrcode == 'border':
+                            module_drawer = RoundedModuleDrawer()
+
+                    user_qrcode = my_full_qrcode.make_image(image_factory=StyledPilImage)
+
+                    qrcode_io = io.BytesIO()
+                    user_qrcode.save(qrcode_io, format='PNG')
+
+                    date = datetime.datetime.today()
+                    CreateQr.objects.create(
+                        image=ContentFile(qrcode_io.getvalue(), name=img_name),
+                        link=my_qrcode,
+                        author_id=request.user,
+                        date=date
+                    )
+
+                    qr = CreateQr.objects.filter(link=my_qrcode, author_id=request.user, date=date).first()
+
+                    print(qr)
+
+                    my_full_qrcode.add_data(request.build_absolute_uri(reverse("view_qrcode", kwargs = {"id": qr.pk})))
                     my_full_qrcode.make()
 
                     img_name = 'qrcode' + str(time.time()) + '.png'
@@ -95,12 +125,9 @@ def render_create_qrcode(request):
                     qrcode_io = io.BytesIO()
                     user_qrcode.save(qrcode_io, format='PNG')
 
-                    CreateQr.objects.create(
-                        image=ContentFile(qrcode_io.getvalue(), name=img_name),
-                        link=my_qrcode,
-                        author_id=request.user,
-                        date=datetime.datetime.today()
-                    )
+                    qr.image = ContentFile(qrcode_io.getvalue(), name=img_name)
+
+                    qr.save()
 
                 return render(request, 'create_qrcode/create_qrcode.html', {'img_name': img_name})
         else:
@@ -129,3 +156,8 @@ def render_my_qrcodes(request):
             print('none')
 
     return render(request, 'my_qrcodes/my_qrcodes.html', {'all_qrcodes': all_links})
+
+
+def view_qrcode(request, id):
+    qr = CreateQr.objects.filter(id = id).first()
+    return redirect(qr.link)
