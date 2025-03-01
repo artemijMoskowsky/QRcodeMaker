@@ -94,21 +94,10 @@ def render_create_qrcode(request):
 
                     qr = CreateQr.objects.filter(link=my_qrcode, author_id=request.user, date=date).first()
 
-                    print(qr)
-
                     my_full_qrcode.add_data(request.build_absolute_uri(reverse("view_qrcode", kwargs = {"id": qr.pk})))
                     my_full_qrcode.make()
 
                     img_name = 'qrcode' + str(time.time()) + '.png'
-
-                    module_drawer = SquareModuleDrawer()
-                    if design_qrcode:
-                        if design_qrcode == 'circle':
-                            module_drawer = CircleModuleDrawer()
-                        elif design_qrcode == 'square':
-                            module_drawer = GappedSquareModuleDrawer(size_ratio=0.8)
-                        elif design_qrcode == 'border':
-                            module_drawer = RoundedModuleDrawer()
 
                     user_qrcode = my_full_qrcode.make_image(
                         image_factory=StyledPilImage,
@@ -138,8 +127,11 @@ def render_my_qrcodes(request):
     all_links = CreateQr.objects.filter(author_id = request.user)
     all_links = all_links[:license_variants[request.user.licence]]
     date = request.user.licence_date.replace(tzinfo=None)
-    if date > datetime.datetime.now():
+    if date < datetime.datetime.now():
         all_links = [all_links[0]]
+
+    all_links = [obj.id for obj in all_links]
+    all_links = CreateQr.objects.filter(id__in = all_links)
 
     if not request.user.is_authenticated:
         return redirect('reg')
