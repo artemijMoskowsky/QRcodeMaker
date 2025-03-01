@@ -104,3 +104,9 @@ confirmDesign.addEventListener('click', ()=>{
     hiddenColorBg.value = colorInputBgQr.value
 })
 
+// let downloadPNGbutton = document.querySelector('#downloadPNG')
+// let imagePNG = document.querySelector('.main-qrcode')
+
+// downloadPNGbutton.addEventListener('click', ()=>{
+
+// })

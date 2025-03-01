@@ -40,10 +40,13 @@
                         <p class="my-text second">Дата: {{ qrcode.date }}</p>
                     </div>
 
-                    <button type = 'button' class = 'button-png'>
-                        Завантажити як png
-                        <img src="{% static 'images/icon_download.png' %}" class = 'icon-download'>
-                    </button>
+                    <a href="/media/{{ qrcode.image }}" download="{{ qrcode.image.name }}" style="text-decoration: none;">
+                        <button type="button" class="button-png">
+                            Завантажити як PNG
+                            <img src="{% static 'images/icon_download.png' %}" class="icon-download">
+                        </button>
+                    </a>
+
                 </div>
 
             {% endfor %}
