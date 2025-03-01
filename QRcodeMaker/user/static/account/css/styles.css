@@ -39,33 +39,6 @@
     border-radius: 1vh;
     text-align: center;
 }
-.security label {
-    display: block;
-    margin-top: 1.5vh;
-    font-weight: bold;
-    color: #6a1b9a;
-}
-.security input {
-    width: 100%;
-    padding: 1vh;
-    margin-top: 0.5vh;
-    border: 0.1vh solid #ccc;
-    border-radius: 1vh;
-    text-align: center;
-}
-.security button {
-    margin-top: 2vh;
-    background: #6a1b9a;
-    color: white;
-    padding: 1.5vh;
-    border: none;
-    border-radius: 1.5vh;
-    cursor: pointer;
-    width: 100%;
-}
-.security button:hover {
-    background: #4a148c;
-}
 
 
 /* body{
