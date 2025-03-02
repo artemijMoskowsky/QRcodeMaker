@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Create_qrcode {% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/style_create_qrcode.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Ysabeau Infant'>
+    <script defer src="{% static 'js/qrcode_modal.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class = 'main-input'>
+        {% if messages %}
+            {% for message in messages %}
+                <div class = 'error'>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+        <form method="post" class = 'main-form' enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type='hidden' name = 'color-input' id = 'colorInputMain' value = ''>
+            <input type='hidden' name = 'color-input-bg' id = 'colorInputBg' value = ''>
+            <input type='hidden' name = 'design-hidden' id = 'designHiddenInput' value = ''>
+               
+            <div class = 'main-posit'>
+                <div class = 'for-urls'>
+                    <div class = 'url-link'>
+                        <p class = 'url-name'>Ваш URL-адрес</p>
+                        <input type="text" placeholder="https://www.com" class = 'input-url' name="data" id="data">
+                    </div>
+                            
+                    <div class = 'qrcode-settings'>
+                        <div class = 'div-settings'>
+                            <img src="{% static 'images/drawing_icon.png' %}" class = 'image-urls'>
+                            <p class ='text-settings'>Налаштуйте кольори</p>
+                            <button type="button" class='button-settings' id = 'modal-color-button'>+</button>
+                        </div>
+
+                        <div class = 'div-settings'>
+                            <img src="{% static 'images/gallery.png' %}" class = 'image-urls'>
+                            <p class ='text-settings'>Додайте логотип</p>
+                            <button type = 'button' class='button-settings' id = 'modal-logo-button'>+</button>
+                        </div>
+
+                        <div class = 'div-settings third'>
+                            <img src="{% static 'images/qrcode.png' %}" class = 'image-urls'>
+                            <p class ='text-settings'>Виберіть дизайн</p>
+                            <button type="button" class='button-settings' id = 'modal-design-button'>+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = 'qrcode-buttons'>
+                    {% if img_name %}
+                        <img src="/media/images/{{ img_name }}" alt="qr-code" class = 'main-qrcode'>
+                    {% endif %}
+
+                    <div class = 'div-buttons'>
+                        <button type="submit" class = 'qr-button main'>Створити Qr-код</button>
+                        
+                        {% if img_name %}
+                        <a href="/media/images/{{ img_name }}" download="qrcode.png">
+                            {% endif %}
+                            <button type="button" class = 'qr-button second' id = 'downloadPNG'>Завантажити як PNG</button>
+                        </a>
+
+                   
+                        
+                        <input type='file' name = 'logo-input' id = 'logoInput' class = 'hidden-logo'>
+                    </div>
+
+                </div>
+            
+            </div>
+            </form>
+    </div>
+
+    <div class = 'modal-window-color' id = 'modal-window-color-id'>
+        <div class = 'color-center' id = 'modalBg'>
+            <div id = 'window-color' class = 'color-window'>
+                <div class = 'dop-color'>
+                    <p class = 'choose-qr'>Оберіть кольори для вашого QR коду</p>
+                    <p class="chooce-background">Колір QR коду:</p>
+                    <input type="color" class = 'color-input-p' id = 'colorInputOne' value = '#000000'>
+
+                    <p class = 'chooce-background'>Колір заднього фону:</p>
+                    <input type="color" class = 'color-input-p' id = 'colorInputTwo' value = '#ffffff'>
+
+                    <button type = 'button' class = 'confirm-button' id = 'buttonColorQR'>
+                        <p class = 'text-confirm'>Підтвердити</p>
+                    </button>
+                </div>
+            </div>
+        </div>   
+    </div>
+      
+    <div hidden class = 'modal-window-logo'>
+        <div class = 'center-logo'>
+            <div id = 'window-logo' class = 'logo-window'>
+                <div class = 'dop-logo'>
+                    <p class = 'text-logo-qr'>Оберіть логотип для вашого QR коду</p>
+                    <div class = 'purple-card'>
+                        
+                        <img src="{% static 'images/camera.png' %}" class = 'camera-logo'>
+                        <input type="file" class = 'add-logo-card' id = 'addLogoInput' name="logo-image" accept="image/png, image/jpeg ">
+                        <!-- <button class = 'add-logo-card'>
+                            <p class = 'add-logo-text'>Додати</p>
+                        </button> -->
+                    </div>
+                    <button class = 'add-logo-card' id = 'confirmLogo'>
+                        <p class = 'add-logo-text'>Підтвердити</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = 'modal-window-design'>
+        <div class = 'center-design'>
+            <div id = 'window-design' class = 'design-window'>
+                <div class = 'dop-design'>
+                    <p class = 'chooce-design'>Оберіть дизайн для вашого QR коду</p>
+                    <div class = 'buttons-design'>
+                        <button type="button" class = 'button-design' id = 'designCircle' value="circle">
+                            <img src="{% static 'images/design_photo_1.png' %}" class = 'design-photo'>
+                        </button>
+                        <button type="button" class = 'button-design' id = 'designSquare' value="square">
+                            <img src="{% static 'images/design_photo_3.png' %}" class = 'design-photo'>
+                        </button>
+                        <button type="button" class = 'button-design' id = 'designBorder' value="border">
+                            <img src="{% static 'images/design_photo_2.png' %}" class = 'design-photo'>
+                        </button>
+                    </div>
+                   
+                    <button type = 'submit' class = 'confirm-button second' id = 'confirmDesign'>
+                        <p class = 'text-confirm'>Підтвердити</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

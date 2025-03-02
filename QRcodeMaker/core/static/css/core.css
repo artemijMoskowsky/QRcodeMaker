@@ -1,0 +1,212 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #fff, rgba(226, 201, 240, 1));
+    color: #333;
+}
+
+h1{
+    font-family: Ysabeau Infant;
+}
+
+.title h1 {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    width: 100vw;
+    margin: -4vh;
+}
+
+.title p{
+    color: black;
+    margin: 8vh;
+    font-size: 3.5vh;
+    font-weight: bold;
+    font-family: Ysabeau Infant;
+}
+
+.title {
+    text-align: center;
+    margin: 4vh 5vw;
+}
+
+.title h1 {
+    font-size: 4vh;
+}
+
+.plans-cards {
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    flex-wrap: wrap;
+    margin: 15vh 2vw;
+}
+
+.plan-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 6vh 4vw;
+    border-radius: 2vw;
+    width: 12vw;
+    height: 45vh;
+    box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.plan-card h2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 3vh;
+    margin-left: -2vw;
+    margin-top: -1vw;
+}
+
+.plan-card h3{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 200;
+    font-size: 3vh;
+    margin-left: -2vw;
+    margin-top: -1vw;
+}
+
+.plan-card h5 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-weight: 200;
+    font-size: 0.8vw;
+    margin-left: -2vw;
+    margin-top: -0.5vw;
+}
+
+.plan-card p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: bold;
+    font-size: 2vw;
+    margin-top: 0.5vw;
+    margin-left: -2vw;
+
+}
+
+.plan-card h6 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 1000;
+    margin-top: 0.5vw;
+    margin-left: -2vw;
+    font-size: 2vh;
+}
+
+.plan-card-storage {
+    font-size: 1.7vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: -2vw;
+    text-align: left;
+}
+
+.plan-card button {
+    background-color: #5b1ea7;
+    color: #fff;
+    padding: 1.5vh 2vw;
+    border: none;
+    border-radius: 1vw;
+    margin: 2vh -2vw;
+    height: 7vh;
+    width: 16vw;
+    font-size: 2vh;
+}
+
+.plan-card ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    font-size: 1.5vh;
+    gap: 0.5vw;
+}
+
+.create-button {
+    text-align: center;
+    margin: 5vh 0;
+}
+
+.create {
+    background-color: #5b1ea7;
+    color: #fff;
+    padding: 2vh 6vw;
+    font-size: 3vh;
+    border: none;
+    border-radius: 1vw;
+}
+
+
+#modal-window{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecececcf;
+}
+
+.modal {
+    background-color: white;
+    padding: 10vh 10vw;
+    border: none;
+    border-radius: 1vw;
+}
+
+.modal-placer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.modal-placer h2{
+    width: fit-content;
+}
+
+.button-yes {
+    background-color: #5b1ea7;
+    color: #fff;
+    padding: 2vh 6vw;
+    font-size: 3vh;
+    border: none;
+    border-radius: 1vw;
+}
+
+.button-no {
+    background-color: #5b1ea7;
+    color: #fff;
+    padding: 2vh 6vw;
+    font-size: 3vh;
+    border: none;
+    border-radius: 1vw;
+}
+
+
+.div-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} My_qrcodes {% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/style_my_qrcodes.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Ysabeau Infant'>
+    <script defer src="{% static 'js/my_qrcodes_modal.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class = 'main-for-qrcodes'>
+        <div class = 'main-filter-div'>
+            <div class = 'filter-div'>
+                <p class = 'text-filter'>Фільтрування</p>
+                <form method="post" class = 'main-form' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <button type = 'submit' class = 'button-filter main' name = 'date-filter' value="click">Дата</button>
+                    <button type = 'submit' class = 'button-filter second' name = 'link-filter' value="click">Посилання</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="div-qrcodes">
+            {% for qrcode in all_qrcodes %}
+                <div class="card">
+                    <div class = 'layout-trash'>
+                        <button class="delete-card" type="button" id = 'deleteCard' value="{{ qrcode.id }}">
+                            <img src="{% static 'images/trash_can.png' %}" class="trash-can">
+                        </button>    
+                    </div>
+                    
+                    {% if qrcode.image %}
+                        <img src="{{ qrcode.image.url }}" class="my-qrcode">
+                    {% endif %}
+
+                    <div class="p-text">
+                        <p class="my-text main">QR code URL: {{ qrcode.link }}</p>
+                        <p class="my-text second">Дата: {{ qrcode.date }}</p>
+                    </div>
+
+                    <a href="/media/{{ qrcode.image }}" download="{{ qrcode.image.name }}" style="text-decoration: none;">
+                        <button type="button" class="button-png">
+                            Завантажити як PNG
+                            <img src="{% static 'images/icon_download.png' %}" class="icon-download">
+                        </button>
+                    </a>
+
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+   
+
+    <div class = 'bg-modal-delete'>
+        <div class = 'delete-center'>
+            <div class = 'modal-delete'>
+                <div class = 'dop-delete'>
+                    <p class = 'text-delete'>Бажаєте видалити qr-код?</p>
+                    <div class="buttons-delete">
+                        <form method="post" class = 'delete-form'>
+                            {% csrf_token %}
+                            <button class = 'chooce-delete yes' id="yesDelete" value='' name="button-delete" type="submit">Так</button>
+                            <button class = 'chooce-delete no' id="noDelete" value="no">Ні</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

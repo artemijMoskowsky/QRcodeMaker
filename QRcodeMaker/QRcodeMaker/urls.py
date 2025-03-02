@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('core.urls')),
     path('user/', include('user.urls')),
-
+    path('qrcodes/', include('qrcode_app.urls'))
 ] + static(MEDIA_URL, document_root = MEDIA_ROOT)
