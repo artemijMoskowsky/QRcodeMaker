@@ -9,20 +9,6 @@
 {% endblock  %}
 
 {% block content %}
-    {% comment %} <div class="main">
-        <div class="account-settings">
-            <div class="sett">
-                <h3>Ім'я користувача:</h3>
-                <p>{{ user.username }}</p>
-                <br>
-                <h3>Email користувача:</h3>
-                <p>{{ user.email }}</p>
-                <br>
-                <h3>Підписка користувача:</h3>
-                <p>{{ user.licence }}</p>
-            </div>
-        </div>
-    </div> {% endcomment %}
 
 <div class="main">
     <div class="account-settings">
@@ -35,21 +21,13 @@
                 <p>{{ user.email }}</p>
                 <h3>Підписка користувача:</h3>
                 <p>{{ user.licence }}</p>
+                <h3>термін дії поточної передплати:</h3>
+                <p>{{ user.licence_date }}</p>
             </div>
-            <div class="security">
-                <h3>Безпека</h3>
-                <label>Email</label>
-                <input type="text" value="{{ user.email }}" disabled>
-                <label>Пароль</label>
-                <input type="password" value="********" disabled>
-                <button>Змінити пароль</button>
-            </div>
+
         </div>
     </div>
 </div>
-
-
-  
         
 {% endblock  %}
 

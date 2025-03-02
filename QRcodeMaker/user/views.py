@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import CustomUser as User
 
@@ -65,5 +66,9 @@ def render_logout(request):
     messages.success(request, 'Ви вийшли із системи.') 
     return redirect('login')  
 
+ 
 def render_account(request):
-    return render(request=request, template_name="account/account.html")
+    if request.user.is_authenticated:
+
+        return render(request=request, template_name="account/account.html")
+    return redirect("reg")

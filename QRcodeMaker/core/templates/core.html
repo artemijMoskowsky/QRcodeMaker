@@ -68,6 +68,14 @@
         <input type="hidden" name="subscribe" class = "subscribe-input">
         <h1 class = "warning-text">Ви впевнені що хочете змінити підписку?</h1>
         <div class="modal-placer">
+            <h2>Ім'я: </h2>
+            <input type="text" name="name" minlength="3" maxlength="50" required>
+        </div>
+        <div class="modal-placer">
+            <h2>Контактний номер: </h2>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx" required>
+        </div>
+        <div class="modal-placer">
             <h2>Номер картки: </h2>
             <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
         </div>

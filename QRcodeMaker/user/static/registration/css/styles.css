@@ -4,11 +4,12 @@ body{
 }
 
 
-.main{
+.main {
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-height: 90vh;
+    gap: 5vw; 
 }
 
 
@@ -103,9 +104,22 @@ body{
     background-color: #a459d1;
 }
 
-.image-qr{
-    margin-right: 10vw;
+.test-2 {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    margin-left: 5vw; 
 }
+
+.image-qr { 
+    max-width: 90vw;  
+    height: auto;     
+    width: auto;      
+    display: block;   
+}
+
 
 .error{
     color: red;
