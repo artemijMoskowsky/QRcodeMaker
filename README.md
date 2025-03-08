@@ -1,18 +1,18 @@
-#QRcodeMaker
-##Мета проекту:
+# QRcodeMaker
+## Мета проекту:
 Мета проекту - розробити сайт для створення qr кодів, на сайті присутня система акаунтів та підписок, та після закінчення часу підписки певні qr коди стають недоступними.
-##Команда:
+## Команда:
 - [Moskowsky Artem - TeamLid](https://github.com/artemijMoskowsky)
 - [Naumenko Nikita](https://github.com/NaumenkoNikita)
 - [Ovcharenko Julia](https://github.com/JuliaOvcharenko)
 - [Sivaiev Matvii](https://github.com/MatviiSivaiev2009)
 
-##Технології:
+## Технології:
 - Основний фреймворк - Django
 - Мова програмування - Python
 
-##Як встановити та запустити проект?
-###Встановлення:
+##Я к встановити та запустити проект?
+### Встановлення:
 Завантажте проект
 ```bash
   git clone https://github.com/artemijMoskowsky/QRcodeMaker
@@ -26,7 +26,7 @@
   pip install -r requirements.txt
 ```
 
-###Запуск:
+### Запуск:
 Перейдіть до головної папки сайту
 ```bash
   cd QRcodeMaker
