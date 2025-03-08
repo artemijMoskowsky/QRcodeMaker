@@ -16,7 +16,7 @@ def render_home(request):
             license = request.POST.get("subscribe")
             try:
                 user = CustomUser.objects.get(pk = request.user.pk)
-                user.licence_date = datetime.now() + relativedelta(months=1)
+                user.licence_date = datetime.now() + relativedelta(seconds=1)
                 user.licence = license
                 user.save()
             except:
