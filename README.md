@@ -10,7 +10,7 @@
 ## Мета проекту:
 Мета проекту - розробити сайт для створення qr кодів, на сайті присутня система акаунтів та підписок, та після закінчення часу підписки певні qr коди стають недоступними. Проект застосовує технології які можуть використовуватися у інших, більш великих проектах.
 ## Команда:
-- [Moskowsky Artem - TeamLid](https://github.com/artemijMoskowsky)
+- [Moskowsky Artem - TeamLead](https://github.com/artemijMoskowsky)
 - [Naumenko Nikita](https://github.com/Naumenko0Nikita)
 - [Ovcharenko Julia](https://github.com/JuliaOvcharenko)
 - [Sivaiev Matvii](https://github.com/MatviiSivaiev2009)
