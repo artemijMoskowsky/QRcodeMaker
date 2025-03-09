@@ -18,13 +18,9 @@ def render_registation(request):
         password_confirm = request.POST.get("passwordConfirm")
 
         if User.objects.filter(username=username).exists():
-            # messages.error(request, 'Користувач з таким ім\'ям вже існує.')
-            # return redirect('reg')
             context["name"].append("Користувач з таким ім\'ям вже існує.")
 
         elif User.objects.filter(email=email).exists():
-            # messages.error(request, 'Користувач з таким email вже існує.')
-            # return redirect('reg')
             context["email"].append("Користувач з таким email вже існує.")
         
         elif password != password_confirm:
@@ -34,7 +30,6 @@ def render_registation(request):
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
 
-            # messages.success(request, 'Реєстрація пройшла успішно!')
             return redirect('login') 
     
     return render(request=request,template_name="registration/registration.html", context=context)
@@ -51,12 +46,9 @@ def render_login(request):
 
         if user is not None:
             login(request, user)
-            # messages.success(request, 'Вхід виконано успішно!')
             return redirect('/')
         
         else:
-            # messages.error(request, 'Неправильне ім\'я користувача або пароль.')
-            # return redirect('login')
            context["error"].append("Неправильне ім\'я користувача або пароль.")
 
     return render(request=request,template_name="login/login.html", context=context)

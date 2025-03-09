@@ -2,6 +2,7 @@ from django.urls import path
 
 from .views import render_registation, render_login, render_logout, render_account
 
+# Задаємо функції відображення для endpoint-ів
 urlpatterns = [
     path('registration/', render_registation, name = "reg"),
     path('login/', render_login, name = "login"),
