@@ -3,7 +3,7 @@
 Мета проекту - розробити сайт для створення qr кодів, на сайті присутня система акаунтів та підписок, та після закінчення часу підписки певні qr коди стають недоступними.
 ## Команда:
 - [Moskowsky Artem - TeamLid](https://github.com/artemijMoskowsky)
-- [Naumenko Nikita](https://github.com/NaumenkoNikita)
+- [Naumenko Nikita](https://github.com/Naumenko0Nikita)
 - [Ovcharenko Julia](https://github.com/JuliaOvcharenko)
 - [Sivaiev Matvii](https://github.com/MatviiSivaiev2009)
 
@@ -31,7 +31,7 @@
 ```bash
   cd QRcodeMaker
 ```
-Запустить скрипт через manage.py
+Запустіть скрипт через manage.py
 ```bash
   python manage.py runserver [порт, але це не обов'язково]
 ```
